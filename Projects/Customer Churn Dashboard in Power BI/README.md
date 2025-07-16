@@ -86,13 +86,12 @@ To analyze churn data and help stakeholders identify key reasons for customer at
 
 ---
 
-## 🙋‍♂️ About Me
+## 👤 Author
 
 **Syed Ameen Ahmed**  
-Final-year Computer Science student | Data Analytics Intern at **PySpyder**  
-🔧 Passionate about transforming raw data into actionable insights using **Power BI, Python, SQL, Pandas, Excel**, and more.
-
-📫 [LinkedIn](https://www.linkedin.com/in/syed-ameen-9b3871217) | 📧 ameenahmed16th@gmail.com
+📍 Krishnagiri, Tamil Nadu  
+📧 <a href="mailto:ameenahmed16th@gmail.com">Gmail</a>  
+🔗 <a href="https://www.linkedin.com/in/syed-ameen-9b3871217/" target="_blank">LinkedIn</a>
 
 ---
 
