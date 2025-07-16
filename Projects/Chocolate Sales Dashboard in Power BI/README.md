@@ -2,7 +2,7 @@
 
 This project is a fully interactive sales dashboard built in **Power BI**, showcasing key metrics and business insights from a fictional chocolate sales dataset.
 
-![Chocolate Sales Dashboard](https://github.com/syedameen16/Power-BI-Chocolate-Sales-Dashboard/raw/main/Chocolate-Sales-Dashboard%20-%20Overview.PNG)
+![Chocolate Sales Dashboard](https://github.com/syedameen16/Portfolio/blob/main/Projects/Chocolate%20Sales%20Dashboard%20in%20Power%20BI/Chocolate-Sales-Dashboard%20-%20Overview.PNG)
 
 
 ---
@@ -53,16 +53,16 @@ This project is a fully interactive sales dashboard built in **Power BI**, showc
 --> Interactive Monthly Trend Analysis
 Visual line chart showing how sales revenue changes over time from Jan 2023 to Apr 2024 — helping identify growth periods and sales drops.
 
---> Country-Wise Revenue Breakdown
+##  Country-Wise Revenue Breakdown
 Donut chart providing a quick comparison of revenue contributions from top countries like the USA, UK, Australia, and more.
 
---> Top Performing Products
+##  Top Performing Products
 Bar chart listing best-selling chocolate variants — Orange Choco and 99% Dark & Pure leading the list.
 
---> Salesperson Performance Tracker
+##  Salesperson Performance Tracker
 Table displaying individual sales reps and their contribution to the total revenue.
 
---> Dynamic KPI Cards
+##  Dynamic KPI Cards
 
    - Total Sales Amount: ₹21.53M
 
@@ -70,10 +70,10 @@ Table displaying individual sales reps and their contribution to the total reven
 
    - Updated automatically based on date selection.
 
---> Date Slicer
+##  Date Slicer
 Easily adjust reporting period to focus on specific timeframes using the date range slider.
 
---> Clean & Minimal Layout
+##  Clean & Minimal Layout
 Professional visual hierarchy for quick interpretation and storytelling.
 
 ---
@@ -84,14 +84,17 @@ To derive meaningful business insights from chocolate sales data, visualize tren
 ---
 
 ## 📁 Files
-- `sample-chocolate-sales-data-1.xlsx` – Raw dataset (Excel)
 - `Chocolate-Sales-Dashboard.pbix` – Power BI report file 
 - `Power-BI-Chocolate-Sales-Dashboard.PNG` – Dashboard snapshot
 
 ---
 
-## 🙋‍♂️ About Me
-**Recent Computer Science graduate** | Data Analytics Intern at PySpyder | Passionate about turning raw data into valuable insights using **Python, Power BI, SQL, Excel**, and modern analytics tools.
+## 👤 Author
+
+**Syed Ameen Ahmed**  
+📍 Krishnagiri, Tamil Nadu  
+📧 <a href="mailto:ameenahmed16th@gmail.com">Gmail</a>  
+🔗 <a href="https://www.linkedin.com/in/syed-ameen-9b3871217/" target="_blank">LinkedIn</a>
 
 ---
 
