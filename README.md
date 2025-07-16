@@ -26,14 +26,14 @@
 
 ## 📂 Featured Projects
 
-### 📊 [Chocolate Sales Dashboard (Power BI)](https://github.com/syedameen16/Power-BI-Chocolate-Sales-Dashboard)
+### 📊 [Chocolate Sales Dashboard (Power BI)](https://github.com/syedameen16/Portfolio/tree/main/Projects/Chocolate%20Sales%20Dashboard%20in%20Power%20BI)
 Created a Power BI dashboard to analyze chocolate sales by country, product, and salesperson. Included KPIs, charts, and filters to show monthly trends and top-performing items.
 
 **Keywords**: `power-bi`, `dashboard`, `data-visualization`, `sales-analysis`, `business-intelligence`
 
 ---
 
-### 🤖 [Customer Churn Prediction (Python)](https://github.com/your-repo)
+### 🤖 [Customer Churn Prediction (Python)](https://github.com/syedameen16/Portfolio/tree/main/Projects/Customer%20Churn%20Dashboard%20in%20Power%20BI)
 Developed a machine learning model to predict telecom customer churn using Python. Included EDA, key metrics, and classification models to identify high-risk customers.
 
 **Keywords**: `machine-learning`, `classification`, `python`, `sklearn`, `churn-prediction`
@@ -47,7 +47,7 @@ Built a content-based recommendation engine using movie metadata like genre, cas
 
 ---
 
-### 🛍️ [Diwali Sales Analysis (EDA)](https://github.com/your-repo)
+### 🛍️ [Diwali E-Commerce Sales Analysis](https://github.com/syedameen16/Portfolio/tree/main/Projects/Diwali_Ecommerce_Sales_Analysis)
 Performed exploratory analysis on Diwali retail sales data to extract customer insights by state, age group, and product category.
 
 **Keywords**: `eda`, `retail-analytics`, `data-analysis`, `python`, `seaborn`
