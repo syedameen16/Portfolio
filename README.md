@@ -58,7 +58,8 @@ Performed exploratory analysis on Diwali retail sales data to extract customer i
 
 - 💼 [LinkedIn](https://www.linkedin.com/in/syed-ameen-9b3871217/)
 - 📧 <a href="mailto:ameenahmed16th@gmail.com">Gmail</a>
-- 📱 8778389094
+- 📱 <a href="tel:+918778389094">8778389094</a>
+
 
 ---
 
@@ -71,7 +72,7 @@ Feel free to explore my GitHub repos and reach out for collaboration!
 
 ## 🏷️ Portfolio Tags
 
-#data-analytics` `#python` `#powerbi` `#sql` `#projects` `#dashboard` `#eda` `#machinelearning` `#data-visualization`
+#data-analytics` `Python` `#PowerBI` `#Sql` `#Projects` `#Dashboard` `#EDA`  `#Data-Visualization`
 
 ---
 
