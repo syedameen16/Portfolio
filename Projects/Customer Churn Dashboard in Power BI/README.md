@@ -2,7 +2,7 @@
 
 This is a fully interactive and insightful dashboard developed in **Power BI** to analyze and visualize customer churn behavior. It uses a fictional telecom dataset to help identify patterns and trends in customer retention and attrition.
 
-![Customer Churn Dashboard]([https://github.com/syedameen16/Customer-Churn-Dashboard-Power-BI-/blob/main/Customer%20Churn%20Overview.PNG](https://github.com/syedameen16/Portfolio/blob/main/Projects/Customer%20Churn%20Dashboard%20in%20Power%20BI/Customer%20Churn%20Overview.PNG))
+![Customer Churn Dashboard](https://github.com/syedameen16/Portfolio/blob/main/Projects/Customer%20Churn%20Dashboard%20in%20Power%20BI/Customer%20Churn%20Overview.PNG)
 
 ---
 
