@@ -1,60 +1,71 @@
-# 👋 Hi, I'm Syed Ameen Ahmed
+# 👋 Hi, I'm Syed Ameen Ahmed!
 
-🎯 Aspiring Data Analyst | Python, SQL, Power BI, Pandas  
-📍 Krishnagiri, Tamil Nadu, India  
-📧 <a href="mailto:ameenahmed16th@gmail.com">ameenahmed16th@gmail.com</a>  
-🔗 <a href="https://www.linkedin.com/in/syed-ameen-9b3871217/" target="_blank">LinkedIn Profile</a>
+🎯 **Aspiring Data Analyst** with hands-on experience in Python, Pandas, NumPy, SQL, Power BI, and Excel. Passionate about solving real-world business problems using data and delivering actionable insights through clean analysis and visualization.
 
 ---
 
-## 💼 About Me
+## 🚀 About Me
 
-I'm a passionate and detail-oriented final-year student with a strong interest in **Data Analytics**. I enjoy turning data into actionable insights using tools like Python, Pandas, SQL, and Power BI. Currently pursuing a Data Analytics internship at **PySpyder**, I’m focused on building real-world projects and strengthening my analytical thinking.
-
----
-
-## 🧠 Skills
-
-- **Languages & Tools**: Python, SQL, Power BI, Excel
-- **Libraries**: Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn
-- **Database**: Oracle SQL, MySQL
-- **Other**: Data Cleaning, EDA, Dashboarding, Git, GitHub
+- 📍 From Krishnagiri, Tamil Nadu  
+- 🎓 Final-year student with a strong foundation in data handling, transformation, and visualization  
+- 💻 Currently interning at **PySpyder** (Basavanagudi) — Data Analytics role  
+- 📈 Open to Analyst and Associate roles in Bangalore, Chennai, and Vellore  
+- 🔍 Interested in projects related to business analytics, data dashboards, and ML-based insights
 
 ---
 
-## 📊 Featured Projects
+## 🛠️ Skills
 
-### 📈 [Chocolate Sales Dashboard (Power BI)](https://github.com/syedameen16/Power-BI-Chocolate-Sales-Dashboard)
-Created a Power BI dashboard to analyze chocolate sales by country, product, and salesperson. Included KPIs, filters, and monthly trend analysis.
-
-### 🔍 [Customer Churn Prediction (Python)](https://github.com/syedameen16/Customer-Churn-Prediction)
-Developed a classification model to predict customer churn using Python and scikit-learn. Included EDA, logistic regression, and performance evaluation.
-
-### 🎬 [Movie Recommendation System](https://github.com/syedameen16/Movie-Recommendation-System)
-Built a content-based recommender using cosine similarity on movie metadata like genre, cast, and keywords.
-
-### 🛍️ [Diwali Sales Analysis](https://github.com/syedameen16/Diwali-Ecommerce-Sales-Analysis)
-Performed EDA on festive season sales data to uncover insights across age, gender, state, and product category using Python, Pandas, and Seaborn.
+- **Languages**: Python, SQL, HTML/CSS
+- **Libraries**: Pandas, NumPy, Matplotlib, Seaborn
+- **Tools**: Power BI, MS Excel, Jupyter Notebook, VS Code, GitHub
+- **Database**: MySQL, Oracle SQL
+- **Others**: Data Cleaning, Data Transformation, Exploratory Data Analysis, Dashboarding
 
 ---
 
-## 🚀 Currently Learning
+## 📂 Featured Projects
 
-- 📌 Pandas & NumPy (with hands-on practice)
-- 📌 SQL Joins, Subqueries, and Case logic
-- 📌 Power BI advanced visuals
-- 📌 DSA for data analytics thinking
+### 📊 [Chocolate Sales Dashboard (Power BI)](https://github.com/syedameen16/Power-BI-Chocolate-Sales-Dashboard)
+Created a Power BI dashboard to analyze chocolate sales by country, product, and salesperson. Included KPIs, charts, and filters to show monthly trends and top-performing items.
 
----
-
-## 🤝 Let's Connect
-
-I'm open to internships, freelance analytics projects, or full-time analyst roles.  
-Feel free to explore my GitHub repos and reach out for collaboration!
+**Keywords**: `power-bi`, `dashboard`, `data-visualization`, `sales-analysis`, `business-intelligence`
 
 ---
 
-## 🏷️ Portfolio Tags
+### 🤖 [Customer Churn Prediction (Python)](https://github.com/your-repo)
+Developed a machine learning model to predict telecom customer churn using Python. Included EDA, key metrics, and classification models to identify high-risk customers.
 
-`#data-analytics` `#python` `#powerbi` `#sql` `#projects` `#dashboard` `#eda` `#machinelearning` `#data-visualization`
+**Keywords**: `machine-learning`, `classification`, `python`, `sklearn`, `churn-prediction`
 
+---
+
+### 🎥 [Movie Recommendation System](https://github.com/your-repo)
+Built a content-based recommendation engine using movie metadata like genre, cast, and director to suggest similar movies.
+
+**Keywords**: `content-based-filtering`, `recommendation-system`, `nlp`, `cosine-similarity`, `python`
+
+---
+
+### 🛍️ [Diwali Sales Analysis (EDA)](https://github.com/your-repo)
+Performed exploratory analysis on Diwali retail sales data to extract customer insights by state, age group, and product category.
+
+**Keywords**: `eda`, `retail-analytics`, `data-analysis`, `python`, `seaborn`
+
+---
+
+## 📫 Connect With Me
+
+- 💼 [LinkedIn](https://www.linkedin.com/in/syed-ameen-9b3871217/)
+- 📧 <a href="mailto:ameenahmed16th@gmail.com">ameenahmed16th@gmail.com</a>
+- 📱 8778389094
+
+---
+
+## 📈 GitHub Stats
+
+![Syed Ameen's GitHub stats](https://github-readme-stats.vercel.app/api?username=syedameen16&show_icons=true&theme=default)
+
+---
+
+_Thanks for visiting my profile! Feel free to explore my projects and connect with me._ 🙌
