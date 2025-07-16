@@ -7,7 +7,7 @@
 ## 🚀 About Me
 
 - 📍 From Krishnagiri, Tamil Nadu  
-- 🎓 Final-year student with a strong foundation in data handling, transformation, and visualization  
+- 🎓 Recent graduate with hands-on experience and a solid foundation in data analytics and visualization  
 - 💻 Currently interning at **PySpyder** (Basavanagudi) — Data Analytics role  
 - 📈 Open to Analyst and Associate roles in Bangalore, Chennai, and Vellore  
 - 🔍 Interested in projects related to business analytics, data dashboards, and ML-based insights
@@ -57,7 +57,7 @@ Performed exploratory analysis on Diwali retail sales data to extract customer i
 ## 📫 Connect With Me
 
 - 💼 [LinkedIn](https://www.linkedin.com/in/syed-ameen-9b3871217/)
-- 📧 <a href="mailto:ameenahmed16th@gmail.com">ameenahmed16th@gmail.com</a>
+- 📧 <a href="mailto:ameenahmed16th@gmail.com">Gmail</a>
 - 📱 8778389094
 
 ---
