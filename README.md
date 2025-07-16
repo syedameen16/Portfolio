@@ -62,9 +62,16 @@ Performed exploratory analysis on Diwali retail sales data to extract customer i
 
 ---
 
-## 📈 GitHub Stats
+## 🤝 Let's Connect
 
-![Syed Ameen's GitHub stats](https://github-readme-stats.vercel.app/api?username=syedameen16&show_icons=true&theme=default)
+I'm open to internships, freelance analytics projects, or full-time analyst roles.  
+Feel free to explore my GitHub repos and reach out for collaboration!
+
+---
+
+## 🏷️ Portfolio Tags
+
+#data-analytics` `#python` `#powerbi` `#sql` `#projects` `#dashboard` `#eda` `#machinelearning` `#data-visualization`
 
 ---
 
