@@ -77,7 +77,7 @@ The `pizza_sales_analysis.sql` file includes:
 
 **Syed Ameen Ahmed**  
 📍 Krishnagiri, Tamil Nadu  
-📧 [ameenahmed16th@gmail.com](mailto:ameenahmed16th@gmail.com)  
+📧 [Gmail](mailto:ameenahmed16th@gmail.com)  
 🔗 [LinkedIn](https://www.linkedin.com/in/syed-ameen-9b3871217/)
 
 ---
