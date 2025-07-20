@@ -5,7 +5,7 @@
 ---
 
 🌐 **Live Portfolio**:  
-👉 [Portfolio](https://syedameen16.github.io/Portfolio/)
+👉 <a href="https://syedameen16.github.io/Portfolio/" target="_blank">Click here to view my Portfolio 🚀</a>
 
 ---
 
