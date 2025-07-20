@@ -4,6 +4,11 @@
 
 ---
 
+🌐 **Live Portfolio**:  
+👉 [Portfolio](https://syedameen16.github.io/Portfolio/)
+
+---
+
 ## 🚀 About Me
 
 - 📍 From Krishnagiri, Tamil Nadu  
