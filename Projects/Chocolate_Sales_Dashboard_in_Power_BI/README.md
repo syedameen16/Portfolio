@@ -2,7 +2,7 @@
 
 This project is a fully interactive sales dashboard built in **Power BI**, showcasing key metrics and business insights from a fictional chocolate sales dataset.
 
-![Chocolate Sales Dashboard](https://github.com/syedameen16/Portfolio/blob/main/Projects/Chocolate%20Sales%20Dashboard%20in%20Power%20BI/Chocolate-Sales-Dashboard%20-%20Overview.PNG)
+![Chocolate Sales Dashboard](https://github.com/syedameen16/Portfolio/blob/main/Projects/Chocolate_Sales_Dashboard_in_Power_BI/Chocolate-Sales-Dashboard%20-%20Overview.PNG)
 
 
 ---
