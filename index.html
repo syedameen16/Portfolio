@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syed Ameen Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --primary: #3b82f6;
+            --secondary: #10b981;
+            --dark: #1e293b;
+            --light: #f8fafc;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            transition: all 0.3s ease;
+        }
+
+        .skill-bar {
+            height: 8px;
+            background-color: #e2e8f0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background-color: var(--primary);
+            transition: width 1s ease-in-out;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .chart-container {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease;
+        }
+
+        .chart-container.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        }
+
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            background-color: var(--dark);
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -60px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <header class="gradient-bg text-white">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold">Syed Ameen Ahmed</div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#about" class="hover:text-gray-300">About</a>
+                <a href="#skills" class="hover:text-gray-300">Skills</a>
+                <a href="#projects" class="hover:text-gray-300">Projects</a>
+                <a href="#contact" class="hover:text-gray-300">Contact</a>
+            </div>
+            <button class="md:hidden focus:outline-none">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </nav>
+
+        <div class="container mx-auto px-6 py-20">
+            <div class="max-w-3xl">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6">Transforming Data Into Decisions</h1>
+                <p class="text-xl mb-8">Aspiring Data Analyst skilled in Python, SQL, and data tools, with strong analytical and problem-solving abilities. Committed to continuous learning, delivering quality insights, and contributing effectively to data-driven projects.</p>
+                <div class="flex space-x-4">
+                    <!-- View Projects Button -->
+<a href="#projects"
+   style="border: 2px solid #ffffff; background-color: transparent; color: #ffffff; padding: 0.75rem 1.5rem; border-radius: 0.5rem; font-weight: 600; display: inline-block; transition: all 0.3s ease;"
+   onmouseover="this.style.backgroundColor='#ffffff'; this.style.color='#3b82f6'; this.style.borderColor='#d1d5db';"
+   onmouseout="this.style.backgroundColor='transparent'; this.style.color='#ffffff'; this.style.borderColor='#ffffff';">
+  View Projects
+</a>
+
+<!-- Contact Me Button -->
+<a href="#contact"
+   style="border: 2px solid #ffffff; background-color: transparent; color: #ffffff; padding: 0.75rem 1.5rem; border-radius: 0.5rem; font-weight: 600; display: inline-block; transition: all 0.3s ease;"
+   onmouseover="this.style.backgroundColor='#ffffff'; this.style.color='#3b82f6'; this.style.borderColor='#d1d5db';"
+   onmouseout="this.style.backgroundColor='transparent'; this.style.color='#ffffff'; this.style.borderColor='#ffffff';">
+  Contact Me
+</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="container mx-auto px-6 flex justify-center">
+            <div class="w-64 h-64 rounded-full overflow-hidden border-8 border-white shadow-lg">
+                <img src="Profile.PNG" class="w-full h-full object-cover" />
+            </div>
+        </div>
+    </header>
+
+<section id="about" class="py-20 bg-white relative overflow-hidden">
+  <div class="container mx-auto px-6">
+    <h2 class="text-3xl font-bold mb-12 text-center">About Me</h2>
+
+    <div class="flex flex-col md:flex-row items-center relative z-10">
+      <!-- Image with Floating Icons -->
+      <div class="md:w-1/2 mb-8 md:mb-0 md:pr-10 relative">
+        <!-- <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/0b194ae7-a678-4303-92cd-68ffdaf9ec54.png"
+             alt="Syed Ameen Ahmed working at a modern office setup with multiple monitors displaying data visualizations and charts"
+             class="rounded-lg shadow-lg w-full" /> -->
+
+             <img
+            src="Side.jpg"
+            alt="Working on data analytics at a modern desk setup with monitors showing charts and graphs"
+            title="Visualizing my journey into Data Analytics — sharpening my skills in Python, Power BI, SQL, and real-world data projects. #AspiringDataAnalyst #FreshersInTech"
+            class="rounded-lg shadow-md w-full transition duration-500 ease-in-out transform hover:scale-105 hover:shadow-xl"/>
+
+        <!-- Python Icon -->
+        <!-- <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+             alt="Python"
+             title="Python"
+             class="w-10 h-10 absolute top-2 left-2 animate-bounce" /> -->
+
+        <!-- SQL Icon -->
+        <!-- <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
+             alt="SQL"
+             title="SQL"
+             class="w-10 h-10 absolute bottom-2 left-2 animate-bounce" /> -->
+
+        <!-- Power BI Icon -->
+        <!-- <img src="https://cdn.worldvectorlogo.com/logos/power-bi-1.svg"
+             alt="Power BI"
+             title="Power BI"
+             class="w-10 h-10 absolute top-1/2 left-full transform -translate-x-1/2 -translate-y-1/2 animate-bounce" /> -->
+      </div>
+
+      <!-- Text Content -->
+      <div class="md:w-1/2">
+        <p class="text-lg mb-6">
+          Aspiring Data Analyst with skills in <strong class="text-blue-600">Python, SQL, Pandas</strong>, and <strong class="text-yellow-600">Power BI</strong>, passionate about turning data into actionable insights. Eager to grow in dynamic environments by contributing to real-world, data-driven solutions.
+        </p>
+        <p class="text-lg mb-6">
+          I have learned to face challenges with a positive mindset and good time management. Right now, I’m improving my skills by working on projects and learning new tools step by step.
+        </p>
+
+        <!-- Education Blocks -->
+        <div class="flex items-center space-x-4 mb-6">
+          <div class="p-3 bg-blue-100 rounded-full">
+            <i class="fas fa-graduation-cap text-blue-600 text-xl" ></i>
+
+          </div>
+          <div>
+            <p>B.E Computer Science and Engineering </p>
+            <p class="text-sm text-gray-600">C. Abdul Hakeem College of Engineering and Technology (2021–2025)</p>
+            <p class="text-sm text-gray-600">CGPA: 7.8</p>
+          </div>
+        </div>
+
+        <div class="flex items-center space-x-4 mb-6">
+          <div class="p-3 bg-blue-100 rounded-full">
+            <i class="fas fa-graduation-cap text-blue-600 text-xl"></i>
+          </div>
+          <div>
+            <p>HSC Education</p>
+            <p class="text-sm text-gray-600">Anaikar Oriental (Arabic) Higher Secondary School (2019–2021)</p>
+            <p class="text-sm text-gray-600">76.01%</p>
+          </div>
+        </div>
+
+        <div class="flex items-center space-x-4 mb-6">
+          <div class="p-3 bg-blue-100 rounded-full">
+            <i class="fas fa-graduation-cap text-blue-600 text-xl"></i>
+          </div>
+          <div>
+            <p>SSLC Education</p>
+            <p class="text-sm text-gray-600">International Indian School Al-Majmaah (2018–2019)</p>
+            <p class="text-sm text-gray-600">64.4%</p>
+          </div>
+        </div>
+
+        <!-- Resume Download -->
+            <a href="https://github.com/syedameen16/Portfolio/raw/main/Syed_Ameen_Resume_.pdf" 
+   download="Syed_Ameen_Resume.pdf"
+   target="_blank"
+   class="inline-flex items-center px-4 py-2 text-blue-600 font-semibold hover:text-blue-800 hover:bg-blue-50 rounded-lg transition transform hover:scale-105 duration-300">
+   Download Resume
+   <i class="fas fa-download ml-2 transition hover:text-blue-800"></i>
+</a>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    <section id="skills" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-12 text-center">My Skills</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Technical Skills</h3>
+
+                    <div class="mb-4">
+                        <div class="flex justify-between mb-1">
+                            <span>Python</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 0" data-width="90%"></div>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <div class="flex justify-between mb-1">
+                            <span>SQL</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 0" data-width="95%"></div>
+                        </div>
+                    </div>
+
+                    
+
+                    <!-- <div class="mb-4">
+                        <div class="flex justify-between mb-1">
+                            <span>R</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 0" data-width="80%"></div>
+                        </div>
+                    </div> -->
+
+                    <div class="mb-4">
+                        <div class="flex justify-between mb-1">
+                            <span>Power BI</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 0" data-width="85%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Analytical Skills</h3>
+
+                    <div class="mb-4">
+                        <div class="flex justify-between mb-1">
+                            <span>Data Visualization</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 0" data-width="90%"></div>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <div class="flex justify-between mb-1">
+                            <span>Statistical Analysis</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 0" data-width="85%"></div>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <div class="flex justify-between mb-1">
+                            <span>Machine Learning</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 0" data-width="75%"></div>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <div class="flex justify-between mb-1">
+                            <span>Data Cleaning</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 0" data-width="95%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-16">
+                <h3 class="text-xl font-semibold mb-8 text-center">Tools I Use</h3>
+
+
+
+
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-center">
+
+    <!-- Python -->
+    <a href="https://www.geeksforgeeks.org/python-programming-language/" target="_blank" class="flex flex-col items-center hover:scale-105 transition">
+        <div class="w-16 h-16 flex items-center justify-center bg-white rounded-lg shadow-md mb-2">
+            <i class="fab fa-python text-3xl text-yellow-500"></i>
+        </div>
+        <span class="font-medium">Python</span>
+        <p class="text-sm text-gray-600 mt-1">For data analysis, automation, and machine learning.</p>
+    </a>
+
+    <!-- SQL -->
+    <a href="https://www.geeksforgeeks.org/sql-tutorial/" target="_blank" class="flex flex-col items-center hover:scale-105 transition">
+        <div class="w-16 h-16 flex items-center justify-center bg-white rounded-lg shadow-md mb-2">
+            <i class="fas fa-database text-3xl text-blue-600"></i>
+        </div>
+        <span class="font-medium">SQL</span>
+        <p class="text-sm text-gray-600 mt-1">To retrieve, filter, and aggregate data from databases.</p>
+    </a>
+
+    <!-- Pandas -->
+    <a href="https://www.geeksforgeeks.org/pandas/introduction-to-pandas-in-python/" target="_blank" class="flex flex-col items-center hover:scale-105 transition">
+        <div class="w-16 h-16 flex items-center justify-center bg-white rounded-lg shadow-md mb-2">
+            <img src="https://pandas.pydata.org/static/img/pandas_mark.svg" alt="Pandas" class="w-full h-full object-contain p-2" />
+        </div>
+        <span class="font-medium">Pandas</span>
+        <p class="text-sm text-gray-600 mt-1">For manipulating, cleaning, and analyzing structured data.</p>
+    </a>
+
+    <!-- NumPy -->
+    <a href="https://www.geeksforgeeks.org/numpy-tutorial/" target="_blank" class="flex flex-col items-center hover:scale-105 transition">
+        <div class="w-16 h-16 flex items-center justify-center bg-white rounded-lg shadow-md mb-2">
+            <img src="https://numpy.org/images/logo.svg" alt="NumPy" class="w-full h-full object-contain p-2" />
+        </div>
+        <span class="font-medium">NumPy</span>
+        <p class="text-sm text-gray-600 mt-1">Used for fast numerical operations and array computations.</p>
+    </a>
+
+    <!-- Power BI -->
+    <a href="https://www.geeksforgeeks.org/power-bi/power-bi-rise-of-microsoft-power-bi-as-a-data-analytics-powerhouse/" target="_blank" class="flex flex-col items-center hover:scale-105 transition">
+        <div class="w-16 h-16 flex items-center justify-center bg-white rounded-lg shadow-md mb-2">
+            <img src="https://download.logo.wine/logo/Power_BI/Power_BI-Logo.wine.png" alt="Power BI" class="w-full h-full object-contain p-2" />
+        </div>
+        <span class="font-medium">Power BI</span>
+        <p class="text-sm text-gray-600 mt-1">To build dashboards and visualize business insights.</p>
+    </a>
+
+    <!-- Excel -->
+    <a href="https://www.geeksforgeeks.org/excel/introduction-to-ms-excel/" target="_blank" class="flex flex-col items-center hover:scale-105 transition">
+        <div class="w-16 h-16 flex items-center justify-center bg-white rounded-lg shadow-md mb-2">
+            <i class="fas fa-file-excel text-3xl text-green-600"></i>
+        </div>
+        <span class="font-medium">Excel</span>
+        <p class="text-sm text-gray-600 mt-1">For quick data cleaning, formulas, and charts.</p>
+    </a>
+
+    <!-- Jupyter Notebook -->
+    <a href="https://www.geeksforgeeks.org/python/getting-started-with-jupyter-notebook-python/" target="_blank" class="flex flex-col items-center hover:scale-105 transition">
+        <div class="w-16 h-16 flex items-center justify-center bg-white rounded-lg shadow-md mb-2">
+            <img src="https://jupyter.org/assets/homepage/main-logo.svg" alt="Jupyter Notebook" class="w-full h-full object-contain p-2" />
+        </div>
+        <span class="font-medium">Jupyter</span>
+        <p class="text-sm text-gray-600 mt-1">Interactive coding and visualizations in notebook format.</p>
+    </a>
+
+    <!-- GitHub -->
+    <a href="https://www.geeksforgeeks.org/introduction-to-github/" target="_blank" class="flex flex-col items-center hover:scale-105 transition">
+        <div class="w-16 h-16 flex items-center justify-center bg-white rounded-lg shadow-md mb-2">
+            <i class="fab fa-github text-3xl text-gray-800"></i>
+        </div>
+        <span class="font-medium">GitHub</span>
+        <p class="text-sm text-gray-600 mt-1">To share projects, version control, and collaborate.</p>
+    </a>
+
+</div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-12 text-center">Data Projects</h2>
+
+            <div class="flex justify-center mb-8">
+                <div class="inline-flex rounded-md shadow-sm" role="group">
+                    <button type="button" class="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-l-lg hover:bg-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-500 focus:bg-blue-700 transition" data-filter="all">
+                        All Projects
+                    </button>
+                    <button type="button" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white hover:bg-gray-100 focus:z-10 focus:ring-2 focus:ring-blue-500 focus:bg-gray-100 transition" data-filter="Dashboards">
+                        Dashboards
+                    </button>
+                    <button type="button" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white hover:bg-gray-100 focus:z-10 focus:ring-2 focus:ring-blue-500 focus:bg-gray-100 transition" data-filter="Python">
+                        Python
+                    </button>
+                    <button type="button" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white rounded-r-md hover:bg-gray-100 focus:z-10 focus:ring-2 focus:ring-blue-500 focus:bg-gray-100 transition" data-filter="SQL">
+                        SQL
+                    </button>
+                    <!-- <button type="button" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white rounded-r-md hover:bg-gray-100 focus:z-10 focus:ring-2 focus:ring-blue-500 focus:bg-gray-100 transition" data-filter="Excel">
+                        Excel
+                    </button> -->
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 project-container">
+                <!-- Project 1 -->
+                <div class="project-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300" data-category="Dashboards">
+                    <div class="h-48 overflow-hidden">
+                        <!-- <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/b6b0a462-be7b-434c-9567-6fc3d9d3e7f9.png" alt="Interactive sales dashboard showing regional performance metrics with colorful charts and graphs" class="w-full h-full object-cover" /> -->
+
+                        <img src="Chocolate-Sales-Dashboard - Overview.PNG" alt="">
+
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-sm text-green-600 font-semibold">Analysis</span>
+                            <span class="text-sm text-blue-600 font-semibold">Visualization</span>
+
+                            <span class="text-xs text-gray-500">July 2025</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Chocolate Sales Dashboard</h3>
+                        <p class="text-gray-600 mb-4">Created a Power BI dashboard to analyze chocolate sales by country, product, and salesperson. Included KPIs, charts, and filters to show monthly trends and top-performing items.</p>
+                        <div class="flex space-x-2 mb-4">
+                            <span class="px-2 py-1 bg-gray-100 text-gray-800 text-xs rounded">Power BI</span>
+                            <span class="px-2 py-1 bg-gray-100 text-gray-800 text-xs rounded">Dashboard</span>
+                            <span class="px-2 py-1 bg-gray-100 text-gray-800 text-xs rounded">Business-Intelligence</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <a href="https://github.com/syedameen16/Portfolio/tree/main/Projects/Chocolate_Sales_Dashboard_in_Power_BI" target="_blank" class="text-blue-600 text-sm font-semibold hover:underline">View Project</a>
+                            <a href="https://github.com/syedameen16/Portfolio/tree/main/Projects/Chocolate_Sales_Dashboard_in_Power_BI" target="_blank" class="text-gray-500 hover:text-gray-700">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- Project 2 -->
+                <div class="project-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300" data-category="Dashboards">
+                    <div class="h-48 overflow-hidden">
+                        <!-- <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/0d3d055a-f120-480f-8c13-2264583a0d57.png" alt="Machine learning model performance metrics dashboard showing high accuracy scores on validation data" class="w-full h-full object-cover" /> -->
+                         <img src="Customer Churn Overview.PNG" alt="">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-sm text-green-600 font-semibold">Analysis</span>
+                            <span class="text-sm text-blue-600 font-semibold">Visualization</span>
+                            <span class="text-xs text-gray-500">July 2025</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Customer Churn Dashboard</h3>
+                        <p class="text-gray-600 mb-4">Developed a machine learning model to predict telecom customer churn using Python. Included EDA, key metrics, and classification models to identify high-risk customers.</p>
+                        <div class="flex space-x-2 mb-4">
+                            <span class="px-2 py-1 bg-gray-100 text-gray-800 text-xs rounded">Power BI</span>
+                            <span class="px-2 py-1 bg-gray-100 text-gray-800 text-xs rounded">Dashboard</span>
+                            <span class="px-2 py-1 bg-gray-100 text-gray-800 text-xs rounded">Business-Intelligence</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <a href="https://github.com/syedameen16/Portfolio/tree/main/Projects/Customer_Churn_Dashboard_in_Power_BI" target="_blank" class="text-blue-600 text-sm font-semibold hover:underline">View Project</a>
+                            <a href="https://github.com/syedameen16/Portfolio/tree/main/Projects/Customer_Churn_Dashboard_in_Power_BI" target="_blank" class="text-gray-500 hover:text-gray-700">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300" data-category="Python">
+                    <div class="h-48 overflow-hidden">
+                        <!-- <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4c11c9ec-ba1f-41e5-b532-ea5d5435bf89.png" alt="Financial data analysis report pages with complex charts and tables showing trend analysis over 5 years" class="w-full h-full object-cover" /> -->
+
+                        <img src="Diwali Sales.png" alt="">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-sm text-green-600 font-semibold">Analysis</span>
+                            <span class="text-sm text-blue-600 font-semibold">EDA</span>
+                            <span class="text-sm text-purple-600 font-semibold">Sales Trends</span>
+                            <span class="text-xs text-gray-500">Feb 2025</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Market Trend Analysis</h3>
+                        <p class="text-gray-600 mb-4">Analyzed Diwali e-commerce sales using Python. Performed data cleaning, EDA, and visualizations to identify top products, peak sales days, and customer trends using Pandas, Matplotlib, and Seaborn.</p>
+                        <div class="flex space-x-2 mb-4">
+                            <span class="px-2 py-1 bg-gray-100 text-gray-800 text-xs rounded">Python</span>
+                            <span class="px-2 py-1 bg-gray-100 text-gray-800 text-xs rounded">Pandas</span>
+                            <span class="px-2 py-1 bg-gray-100 text-gray-800 text-xs rounded">Matplotlib</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <a href="https://github.com/syedameen16/Portfolio/tree/main/Projects/Diwali_Ecommerce_Sales_Analysis" target="_blank" class="text-blue-600 text-sm font-semibold hover:underline">View Project</a>
+                            <a href="https://github.com/syedameen16/Portfolio/tree/main/Projects/Diwali_Ecommerce_Sales_Analysis" target="_blank" class="text-gray-500 hover:text-gray-700">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300" data-category="Python">
+                    <div class="h-48 overflow-hidden">
+                        <img src="Blinkit Cover.jpg" class="w-full h-full object-cover" />
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-2">
+
+                            <span class="text-sm text-green-600 font-semibold">Data Cleaning</span>
+                            <span class="text-sm text-purple-600 font-semibold">Exploratory Analysis</span>
+                            <span class="text-sm text-pink-600 font-semibold">Customer Behavior</span>
+                            <span class="text-xs text-gray-500">May 2025</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Blinkit Sales Analysis</h3>
+                        <p class="text-gray-600 mb-4">Exploratory Data Analysis of Blinkit sales data to uncover customer behavior, product trends, and revenue insights using Python, Pandas, and Seaborn.</p>
+                        <div class="flex space-x-2 mb-4">
+                            <span class="px-2 py-1 bg-gray-100 text-gray-800 text-xs rounded">Python</span>
+                            <span class="px-2 py-1 bg-gray-100 text-gray-800 text-xs rounded">Pandas</span>
+                            <span class="px-2 py-1 bg-gray-100 text-gray-800 text-xs rounded">Matplotlib</span>
+                            <span class="px-2 py-1 bg-gray-100 text-gray-800 text-xs rounded">Seaborn</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <a href="https://github.com/syedameen16/Portfolio/tree/main/Projects/Blinkit%20Analysis" target="_blank" class="text-blue-600 text-sm font-semibold hover:underline">View Project</a>
+                            <a href="https://github.com/syedameen16/Portfolio/tree/main/Projects/Blinkit%20Analysis" target="_blank" class="text-gray-500 hover:text-gray-700">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300" data-category="SQL">
+                    <div class="h-48 overflow-hidden">
+                        <img src="Pizza_Cover.PNG" alt="Healthcare data analytics dashboard showing patient demographics, outcomes, and cost analysis" class="w-full h-full object-cover" />
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-sm text-green-600 font-semibold">SQL</span>
+                            <span class="text-sm text-blue-600 font-semibold">Analysis</span>
+                            <span class="text-sm text-yellow-600 font-semibold">Joins</span>
+                            <span class="text-sm text-red-600 font-semibold">Aggregate</span>
+                            <span class="text-xs text-gray-500">June 2025</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Pizza Sales Analysis (SQL)</h3>
+                        <p class="text-gray-600 mb-4">Comprehensive SQL-based sales analysis uncovering key trends in pizza orders, revenue patterns, and customer preferences.</p>
+                        <div class="flex space-x-2 mb-4">
+                            <span class="px-2 py-1 bg-gray-100 text-gray-800 text-xs rounded">SQL</span>
+
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <a href="https://github.com/syedameen16/Portfolio/tree/main/Projects/Pizza_Sales_Analysis_(SQL)" target="_blank" class="text-blue-600 text-sm font-semibold hover:underline">View Project</a>
+                            <a href="https://github.com/syedameen16/Portfolio/tree/main/Projects/Pizza_Sales_Analysis_(SQL)" target="_blank" class="text-gray-500 hover:text-gray-700">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <!-- <div class="project-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300" data-category="machine-learning">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/891ce8f9-4d79-43fe-bab9-871ee5ecf6e4.png" alt="Sentiment analysis visualization showing positive and negative customer feedback trends over time" class="w-full h-full object-cover" />
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-sm text-purple-600 font-semibold">Machine Learning</span>
+                            <span class="text-xs text-gray-500">May 2022</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Sentiment Analysis for Reviews</h3>
+                        <p class="text-gray-600 mb-4">NLP model classifying customer feedback sentiment with 92% accuracy.</p>
+                        <div class="flex space-x-2 mb-4">
+                            <span class="px-2 py-1 bg-gray-100 text-gray-800 text-xs rounded">NLP</span>
+                            <span class="px-2 py-1 bg-gray-100 text-gray-800 text-xs rounded">TensorFlow</span>
+                            <span class="px-2 py-1 bg-gray-100 text-gray-800 text-xs rounded">BERT</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <a href="#" class="text-blue-600 text-sm font-semibold hover:underline">View Project</a>
+                            <a href="#" class="text-gray-500 hover:text-gray-700">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </section>
+
+
+
+<!-- Certification Section -->
+<section id="certifications" class="py-20 bg-gray-50">
+  <div class="container mx-auto px-6">
+    <h2 class="text-3xl font-bold mb-12 text-center">Certifications</h2>
+
+    <!-- Filter Buttons -->
+    <div class="flex justify-center mb-8">
+      <div class="inline-flex rounded-md shadow-sm" role="group" id="cert-filter-buttons">
+        <button type="button" class="cert-filter-btn px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-l-lg hover:bg-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-500 transition" data-filter="all">All</button>
+        <button type="button" class="cert-filter-btn px-4 py-2 text-sm font-medium text-gray-900 bg-white hover:bg-gray-100 focus:z-10 focus:ring-2 focus:ring-blue-500 transition" data-filter="Programming-Databases">Programming & Databases</button>
+        <button type="button" class="cert-filter-btn px-4 py-2 text-sm font-medium text-gray-900 bg-white hover:bg-gray-100 focus:z-10 focus:ring-2 focus:ring-blue-500 transition" data-filter="DS-ML">Data Science & Machine Learning</button>
+        <button type="button" class="cert-filter-btn px-4 py-2 text-sm font-medium text-gray-900 bg-white hover:bg-gray-100 focus:z-10 focus:ring-2 focus:ring-blue-500 transition" data-filter="Microsoft-Technologies">Microsoft Technologies</button>
+        <button type="button" class="cert-filter-btn px-4 py-2 text-sm font-medium text-gray-900 bg-white rounded-r-md hover:bg-gray-100 focus:z-10 focus:ring-2 focus:ring-blue-500 transition" data-filter="Industry/Company-Specific">Industry/Company Specific Certifications</button>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 certification-container">
+
+      <!-- Each cert-card includes the hover effects now -->
+      <div class="cert-card bg-white rounded-lg shadow-md overflow-hidden p-6 transform transition-transform duration-300 hover:scale-105 hover:shadow-lg" data-category="Programming-Databases">
+        <h3 class="text-xl font-bold mb-2">Crash Course on Python</h3>
+        <p class="text-gray-600 mb-2">Covered basics of Python programming, control flow, functions, and data structures.| Jul 13, 2023</p>
+        <a href="https://github.com/syedameen16/Portfolio/blob/main/Certificates/Coursera_Crash_Course_on_PY.pdf" target="_blank" class="text-blue-600 hover:underline text-sm">View Certificate</a>
+      </div>
+
+      <div class="cert-card bg-white rounded-lg shadow-md overflow-hidden p-6 transform transition-transform duration-300 hover:scale-105 hover:shadow-lg" data-category="DS-ML">
+        <h3 class="text-xl font-bold mb-2">Machine Learning with Python</h3>
+        <p class="text-gray-600 mb-2">Gaining hands-on experience with supervised and unsupervised learning, model evaluation, regression, classification, and clustering using Scikit-learn. | Jul  2023</p>
+        <a href="https://github.com/syedameen16/Portfolio/blob/main/Certificates/Machine_Learning_with_Python.pdf" target="_blank" class="text-blue-600 hover:underline text-sm">View Certificate</a>
+      </div>
+
+      <div class="cert-card bg-white rounded-lg shadow-md overflow-hidden p-6 transform transition-transform duration-300 hover:scale-105 hover:shadow-lg" data-category="DS-ML">
+        <h3 class="text-xl font-bold mb-2">Introduction to Data Science</h3>
+        <p class="text-gray-600 mb-2">Completed Introduction to Data Science by Cisco Networking Academy, covering data science lifecycle, data wrangling, visualization, and applications using Python.| Feb 2024</p>
+        <a href="https://github.com/syedameen16/Portfolio/blob/main/Certificates/Introduction_to_Data_Science.pdf" target="_blank" class="text-blue-600 hover:underline text-sm">View Certificate</a>
+      </div>
+
+      <div class="cert-card bg-white rounded-lg shadow-md overflow-hidden p-6 transform transition-transform duration-300 hover:scale-105 hover:shadow-lg" data-category="DS-ML">
+        <h3 class="text-xl font-bold mb-2">Data Science Foundations</h3>
+        <p class="text-gray-600 mb-2">Completed Data Science Foundations course by Great Learning, covering key concepts in data analytics, statistics, Python, and business applications.  | July 2024</p>
+        <a href="https://github.com/syedameen16/Portfolio/blob/main/Certificates/Data_Science_Foundations_By_GL.pdf" target="_blank" class="text-blue-600 hover:underline text-sm">View Certificate</a>
+      </div>
+
+      <div class="cert-card bg-white rounded-lg shadow-md overflow-hidden p-6 transform transition-transform duration-300 hover:scale-105 hover:shadow-lg" data-category="DS-ML">
+        <h3 class="text-xl font-bold mb-2">Neural Networks & Deep Learning</h3>
+        <p class="text-gray-600 mb-2">Completed Neural Networks & Deep Learning course from GUVI, covering perceptrons, backpropagation, CNNs, and model evaluation using Python and TensorFlow. | Feb 2024</p>
+        <a href="https://github.com/syedameen16/Portfolio/blob/main/Certificates/Guvi_Certification_Syed_Ameen.png" target="_blank" class="text-blue-600 hover:underline text-sm">Verify Certificate</a>
+      </div>
+
+      <div class="cert-card bg-white rounded-lg shadow-md overflow-hidden p-6 transform transition-transform duration-300 hover:scale-105 hover:shadow-lg" data-category="Industry/Company-Specific">
+        <h3 class="text-xl font-bold mb-2">Data Analytics Virtual Job Simulation</h3>
+        <p class="text-gray-600 mb-2">Performed exploratory data analysis, identified business insights, and prepared client-ready data visualizations and reports. | Nov 2023</p>
+        <a href="https://github.com/syedameen16/Portfolio/blob/main/Certificates/Deolite.pdf" target="_blank" class="text-blue-600 hover:underline text-sm">Verify Certificate</a>
+      </div>
+
+      <div class="cert-card bg-white rounded-lg shadow-md overflow-hidden p-6 transform transition-transform duration-300 hover:scale-105 hover:shadow-lg" data-category="Programming-Databases">
+        <h3 class="text-xl font-bold mb-2">DBMS & MYSQL</h3>
+        <p class="text-gray-600 mb-2">gained hands-on experience with relational databases, SQL queries, normalization, and CRUD operations using MySQL. | Nov 2023 </p>
+        <a href="https://github.com/syedameen16/Portfolio/blob/main/Certificates/My_SQL.pdf" target="_blank" class="text-blue-600 hover:underline text-sm">Verify Certificate</a>
+      </div>
+
+      <div class="cert-card bg-white rounded-lg shadow-md overflow-hidden p-6 transform transition-transform duration-300 hover:scale-105 hover:shadow-lg" data-category="Industry/Company-Specific">
+        <h3 class="text-xl font-bold mb-2">Data Analytics & Visualization Simulation</h3>
+        <p class="text-gray-600 mb-2">Practiced real-world data cleaning, trend analysis, and dashboard creation using Excel and PowerPoint. | May 2024</p>
+        <a href="https://github.com/syedameen16/Portfolio/blob/main/Certificates/Accenture_North_America__completion_certificate.pdf" target="_blank" class="text-blue-600 hover:underline text-sm">Verify Certificate</a>
+      </div>
+
+      <div class="cert-card bg-white rounded-lg shadow-md overflow-hidden p-6 transform transition-transform duration-300 hover:scale-105 hover:shadow-lg" data-category="Industry/Company-Specific">
+        <h3 class="text-xl font-bold mb-2">Tata Data Visualization</h3>
+        <p class="text-gray-600 mb-2">Developed skills in transforming raw data into visual insights using tools like Excel and PowerPoint, with a focus on business decision-making. | Jul 2024</p>
+        <a href="https://github.com/syedameen16/Portfolio/blob/main/Certificates/Tata_Data_Visualization.pdf" target="_blank" class="text-blue-600 hover:underline text-sm">Verify Certificate</a>
+      </div>
+
+      <div class="cert-card bg-white rounded-lg shadow-md overflow-hidden p-6 transform transition-transform duration-300 hover:scale-105 hover:shadow-lg" data-category="Industry/Company-Specific">
+        <h3 class="text-xl font-bold mb-2">Introduction to Technology Apprenticeship</h3>
+        <p class="text-gray-600 mb-2">Explored foundational concepts in IT consulting, project planning, agile methodologies, and stakeholder communication. | July 2025</p>
+        <a href="https://github.com/syedameen16/Portfolio/blob/main/Certificates/Forage_Intro_to_Technology_Apprenticeship.pdf" target="_blank" class="text-blue-600 hover:underline text-sm">Verify Certificate</a>
+      </div>
+
+      <div class="cert-card bg-white rounded-lg shadow-md overflow-hidden p-6 transform transition-transform duration-300 hover:scale-105 hover:shadow-lg" data-category="Microsoft-Technologies">
+        <h3 class="text-xl font-bold mb-2">Microsoft Office 365 (Advanced)</h3>
+        <p class="text-gray-600 mb-2">Naan Mudhalvan + Microsoft = Enhanced proficiency in Excel, Word, PowerPoint, Outlook, and Teams for advanced business productivity.| Nov  2022</p>
+        <a href="https://github.com/syedameen16/Portfolio/blob/main/Certificates/Advance_Microsoft_Certificate.pdf" target="_blank" class="text-blue-600 hover:underline text-sm">Verify Certificate</a>
+      </div>
+
+      <div class="cert-card bg-white rounded-lg shadow-md overflow-hidden p-6 transform transition-transform duration-300 hover:scale-105 hover:shadow-lg" data-category="Microsoft-Technologies">
+        <h3 class="text-xl font-bold mb-2">Microsoft Office 365 (Beginner)</h3>
+        <p class="text-gray-600 mb-2">Naan Mudhalvan + Microsoft = Developed foundational skills in Excel, Word, PowerPoint, Outlook, and Teams.| Nov 2022</p>
+        <a href="https://github.com/syedameen16/Portfolio/blob/main/Certificates/Beginner_Microsoft_Certificate.pdf" target="_blank" class="text-blue-600 hover:underline text-sm">Verify Certificate</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-12 text-center">Get in Touch</h2>
+
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <div class="bg-blue-50 p-8 rounded-lg h-full">
+                        <h3 class="text-xl font-bold mb-6">Let's Connect</h3>
+                        <p class="mb-6">Have a data challenge you need help with? Want to discuss potential opportunities? Feel free to reach out!</p>
+
+
+                        <div class="mt-12 flex justify-center space-x-6">
+    <!-- GitHub -->
+    <a href="https://github.com/syedameen16" target="_blank" rel="noopener noreferrer" title="GitHub" class="text-gray-600 hover:text-gray-800 transition transform hover:scale-125">
+        <i class="fab fa-github text-3xl" aria-hidden="true"></i>
+        <span class="sr-only">GitHub</span>
+    </a>
+
+    <!-- LinkedIn -->
+    <a href="https://www.linkedin.com/in/syed-ameen-ahmed-9b3871217/" target="_blank" rel="noopener noreferrer" title="LinkedIn" class="text-gray-600 hover:text-gray-800 transition transform hover:scale-125">
+        <i class="fab fa-linkedin-in text-3xl" aria-hidden="true"></i>
+        <span class="sr-only">LinkedIn</span>
+    </a>
+
+    <!-- Email -->
+    <a href="mailto:ameenahmed16th@gmail.com" target="_blank" rel="noopener noreferrer" title="Email" class="text-gray-600 hover:text-gray-800 transition transform hover:scale-125">
+        <i class="fas fa-envelope text-3xl" aria-hidden="true"></i>
+        <span class="sr-only">Email</span>
+    </a>
+
+    <!-- Resume -->
+    <a href="https://github.com/syedameen16/Portfolio/raw/main/Syed_Ameen_Resume_.pdf" target="_blank" rel="noopener noreferrer" title="Resume" class="text-gray-600 hover:text-gray-800 transition transform hover:scale-125">
+        <i class="fas fa-file-alt text-3xl" aria-hidden="true"></i>
+        <span class="sr-only">Resume</span>
+    </a>
+</div>
+
+
+
+                    </div>
+                </div>
+
+                <div class="md:w-1/2">
+  <form action="https://formsubmit.co/ameenahmed16th@gmail.com" method="POST" class="space-y-4">
+
+    <!-- Anti-spam & redirect -->
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_next" value="https://yourportfolio.com/thankyou.html">
+
+    <div>
+      <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+      <input type="text" name="name" id="name" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
+    </div>
+
+    <div>
+      <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+      <input type="email" name="email" id="email" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
+    </div>
+
+    <div>
+      <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+      <input type="text" name="subject" id="subject" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
+    </div>
+
+    <div>
+      <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+      <textarea name="message" id="message" rows="4" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"></textarea>
+    </div>
+
+    <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-md font-semibold hover:bg-blue-700 transition">Send Message</button>
+  </form>
+</div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <div class="text-2xl font-bold mb-2">Syed Ameen Ahmed</div>
+                    <p class="text-gray-400">Data Analyst in Training | Python & Power BI Enthusiast</p>
+                </div>
+
+                <div class="flex space-x-6">
+  <a href="#about" class="text-gray-400 hover:text-white transition">About</a>
+  <a href="#skills" class="text-gray-400 hover:text-white transition">Skills</a>
+  <a href="#projects" class="text-gray-400 hover:text-white transition">Projects</a>
+  <a href="#contact" class="text-gray-400 hover:text-white transition">Contact</a>
+</div>
+            </div>
+
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>© 2025 Syed Ameen Ahmed. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate skill bars
+            const skillProgressBars = document.querySelectorAll('.skill-progress');
+            skillProgressBars.forEach(bar => {
+                const width = bar.getAttribute('data-width');
+                bar.style.width = width;
+            });
+
+            // Project filtering
+            // Changed selector to be more specific to the buttons within the project filter group
+            const projectFilterButtons = document.querySelectorAll('#projects .inline-flex button');
+            const projectCards = document.querySelectorAll('.project-card');
+
+            projectFilterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const filterValue = this.getAttribute('data-filter');
+
+                    // Update active button for projects
+                    projectFilterButtons.forEach(btn => {
+                        // Remove active classes and add inactive classes to all buttons
+                        btn.classList.remove('text-white', 'bg-blue-600', 'hover:bg-blue-700', 'focus:bg-blue-700');
+                        btn.classList.add('text-gray-900', 'bg-white', 'hover:bg-gray-100', 'focus:bg-gray-100');
+                    });
+
+                    // Add active classes to the clicked button
+                    this.classList.remove('text-gray-900', 'bg-white', 'hover:bg-gray-100', 'focus:bg-gray-100');
+                    this.classList.add('text-white', 'bg-blue-600', 'hover:bg-blue-700', 'focus:bg-blue-700');
+
+
+                    // Filter projects
+                    projectCards.forEach(card => {
+                        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // Certification filtering
+            const certFilterButtons = document.querySelectorAll('#certifications .cert-filter-btn');
+            const certCards = document.querySelectorAll('.cert-card');
+
+            certFilterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const selectedCategory = button.getAttribute("data-filter").trim();
+
+                    // Toggle button active state for certifications
+                    certFilterButtons.forEach(btn => {
+                        // Remove active classes and add inactive classes to all cert buttons
+                        btn.classList.remove("bg-blue-600", "text-white", 'hover:bg-blue-700', 'focus:bg-blue-700');
+                        btn.classList.add("bg-white", "text-gray-900", 'hover:bg-gray-100', 'focus:bg-gray-100');
+                    });
+                    // Add active classes to the clicked cert button
+                    button.classList.remove("bg-white", "text-gray-900", 'hover:bg-gray-100', 'focus:bg-gray-100');
+                    button.classList.add("bg-blue-600", "text-white", 'hover:bg-blue-700', 'focus:bg-blue-700');
+
+
+                    // Filter cards
+                    certCards.forEach(card => {
+                        const cardCategory = card.getAttribute("data-category").trim();
+
+                        if (selectedCategory === "all" || cardCategory === selectedCategory) {
+                            card.style.display = "block";
+                        } else {
+                            card.style.display = "none";
+                        }
+                    });
+                });
+            });
+
+            // Initialize charts (if you decide to re-enable this section)
+            // function initCharts() {
+            //     // Bar Chart
+            //     const barCtx = document.getElementById('barChart').getContext('2d');
+            //     const barChart = new Chart(barCtx, {
+            //         type: 'bar',
+            //         data: {
+            //             labels: ['Electronics', 'Clothing', 'Books', 'Home', 'Sports'],
+            //             datasets: [{
+            //                 label: 'Revenue (in thousands)',
+            //                 data: [45, 32, 18, 27, 15],
+            //                 backgroundColor: [
+            //                     'rgba(59, 130, 246, 0.7)',
+            //                     'rgba(16, 185, 129, 0.7)',
+            //                     'rgba(168, 85, 247, 0.7)',
+            //                     'rgba(236, 72, 153, 0.7)',
+            //                     'rgba(249, 115, 22, 0.7)'
+            //                 ],
+            //                 borderColor: [
+            //                     'rgba(59, 130, 246, 1)',
+            //                     'rgba(16, 185, 129, 1)',
+            //                     'rgba(168, 85, 247, 1)',
+            //                     'rgba(236, 72, 153, 1)',
+            //                     'rgba(249, 115, 22, 1)'
+            //                 ],
+            //                 borderWidth: 1
+            //             }]
+            //         },
+            //         options: {
+            //             responsive: true,
+            //             scales: {
+            //                 y: {
+            //                     beginAtZero: true
+            //                 }
+            //             }
+            //         }
+            //     });
+
+            //     // Pie Chart
+            //     const pieCtx = document.getElementById('pieChart').getContext('2d');
+            //     const pieChart = new Chart(pieCtx, {
+            //         type: 'pie',
+            //         data: {
+            //             labels: ['Very Satisfied', 'Satisfied', 'Neutral', 'Dissatisfied', 'Very Dissatisfied'],
+            //             datasets: [{
+            //                 data: [35, 40, 15, 7, 3],
+            //                 backgroundColor: [
+            //                     'rgba(16, 185, 129, 0.7)',
+            //                     'rgba(34, 197, 94, 0.7)',
+            //                     'rgba(101, 163, 13, 0.7)',
+            //                     'rgba(239, 68, 68, 0.7)',
+            //                     'rgba(220, 38, 38, 0.7)'
+            //                 ],
+            //                 borderColor: [
+            //                     'rgba(16, 185, 129, 1)',
+            //                     'rgba(34, 197, 94, 1)',
+            //                     'rgba(101, 163, 13, 1)',
+            //                     'rgba(239, 68, 68, 1)',
+            //                     'rgba(220, 38, 38, 1)'
+            //                 ],
+            //                 borderWidth: 1
+            //             }]
+            //         },
+            //         options: {
+            //             responsive: true
+            //         }
+            //     });
+
+            //     // Line Chart
+            //     const lineCtx = document.getElementById('lineChart').getContext('2d');
+            //     const lineChart = new Chart(lineCtx, {
+            //         type: 'line',
+            //         data: {
+            //             labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+            //             datasets: [{
+            //                 label: 'Monthly Sales (in thousands)',
+            //                 data: [12, 19, 15, 21, 24, 28, 31, 29, 33, 37, 41, 48],
+            //                 fill: false,
+            //                 backgroundColor: 'rgba(59, 130, 246, 0.7)',
+            //                 borderColor: 'rgba(59, 130, 246, 1)',
+            //                 tension: 0.3
+            //             }]
+            //         },
+            //         options: {
+            //             responsive: true,
+            //             scales: {
+            //                 y: {
+            //                     beginAtZero: true
+            //                 }
+            //             }
+            //         }
+            //     });
+
+            //     // Doughnut Chart
+            //     const doughnutCtx = document.getElementById('doughnutChart').getContext('2d');
+            //     const doughnutChart = new Chart(doughnutCtx, {
+            //         type: 'doughnut',
+            //         data: {
+            //             labels: ['Awareness', 'Interest', 'Consideration', 'Conversion'],
+            //             datasets: [{
+            //                 data: [100, 65, 42, 23],
+            //                 backgroundColor: [
+            //                     'rgba(59, 130, 246, 0.7)',
+            //                     'rgba(99, 102, 241, 0.7)',
+            //                     'rgba(168, 85, 247, 0.7)',
+            //                     'rgba(236, 72, 153, 0.7)'
+            //                 ],
+            //                 borderColor: [
+            //                     'rgba(59, 130, 246, 1)',
+            //                     'rgba(99, 102, 241, 1)',
+            //                     'rgba(168, 85, 247, 1)',
+            //                     'rgba(236, 72, 153, 1)'
+            //                 ],
+            //                 borderWidth: 1
+            //             }]
+            //         },
+            //         options: {
+            //             responsive: true,
+            //             cutout: '70%'
+            //         }
+            //     });
+            // }
+
+            // Animate chart containers when scrolling (if you decide to re-enable this section)
+            // const chartContainers = document.querySelectorAll('.chart-container');
+
+            // const observer = new IntersectionObserver((entries) => {
+            //     entries.forEach(entry => {
+            //         if (entry.isIntersecting) {
+            //             entry.target.classList.add('visible');
+
+            //             // Initialize charts when first chart becomes visible
+            //             if (!window.chartsInitialized && entry.target.id === 'barChart') {
+            //                 initCharts();
+            //                 window.chartsInitialized = true;
+            //             }
+            //         }
+            //     });
+            // }, { threshold: 0.1 });
+
+            // chartContainers.forEach(container => {
+            //     observer.observe(container);
+            // });
+        });
+    </script>
+</body>
+</html>
