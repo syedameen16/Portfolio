@@ -84,6 +84,18 @@
         @media (max-width: 360px) {
             #menu-btn { right: 0.5rem; }
         }
+        /* Prevent horizontal overflow on all devices */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* Ensure all content stays within viewport */
+.container {
+  max-width: 100% !important;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
 
         /* Ensure mobile menu is fully interactive */
         #mobile-menu {
