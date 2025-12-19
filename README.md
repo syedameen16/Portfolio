@@ -43,12 +43,7 @@ Developed a machine learning model to predict telecom customer churn using Pytho
 
 **Keywords**: `machine-learning`, `classification`, `python`, `sklearn`, `churn-prediction`
 
----
 
-### 🎥 [Movie Recommendation System](https://github.com/your-repo)
-Built a content-based recommendation engine using movie metadata like genre, cast, and director to suggest similar movies.
-
-**Keywords**: `content-based-filtering`, `recommendation-system`, `nlp`, `cosine-similarity`, `python`
 
 ---
 
