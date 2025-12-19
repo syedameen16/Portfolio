@@ -803,7 +803,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Custom smooth scroll with slower duration (1200ms)
     btn.addEventListener('click', () => {
         const start = window.scrollY;
-        const duration = 1200; // milliseconds — increase for slower scroll
+        const duration = 800; // milliseconds — increase for slower scroll
         const startTime = performance.now();
 
         function step(currentTime) {
@@ -828,3 +828,4 @@ document.addEventListener('DOMContentLoaded', function () {
 </button>
 </body>
 </html>
+
