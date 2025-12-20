@@ -146,23 +146,40 @@ html, body {
         <!-- Main Hero Content -->
         <div class="container mx-auto px-6 py-20">
             <div class="max-w-3xl">
-                <h1 class="text-4xl md:text-6xl font-bold mb-6">Turning business data into insights with Python, SQL and Power BI.
+                <!-- Desktop Heading -->
+<h1 class="hidden md:block text-6xl font-bold mb-6">
+    Turning business data into insights with Python, SQL and Power BI.
 </h1>
-                
-<p class="text-xl mb-8">
-Data Analyst skilled in Python, SQL and Power BI, focusing on EDA, dashboard development and turning real datasets into actionable business insights.
+
+<!-- Mobile Heading -->
+<h1 class="block md:hidden text-3xl font-bold mb-4">
+    Data Analyst | Python • SQL • Power BI
+</h1>
+
+<!-- Desktop paragraph -->
+<p class="hidden md:block text-xl mb-8">
+    Data Analyst skilled in Python, SQL and Power BI, focusing on EDA, dashboard development and turning real datasets into actionable business insights.
 </p>
 
+<!-- Mobile paragraph -->
+<p class="block md:hidden text-base mb-6">
+    Data Analyst using Python, SQL and Power BI to explore, clean and visualize real-world data.
+</p>
+
+
                 <div class="flex flex-wrap gap-4">
-                    <a href="#projects"
-                       class="border-2 border-white text-white px-6 py-2 rounded-lg font-semibold transition hover:bg-white hover:text-blue-600 hover:border-gray-300">
-                        View Projects
-                    </a>
-                    <a href="#contact"
-                       class="border-2 border-white text-white px-6 py-2 rounded-lg font-semibold transition hover:bg-white hover:text-blue-600 hover:border-gray-300">
-                        Contact Me
-                    </a>
-                </div>
+  <!-- Primary Button -->
+  <a href="#projects"
+     class="bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold transition hover:bg-blue-500 hover:shadow-md">
+    View My Projects
+  </a>
+
+  <!-- Secondary Button (now with bright white text) -->
+  <a href="#contact"
+     class="bg-transparent border-2 border-blue-300 text-white px-6 py-2 rounded-lg font-semibold transition hover:bg-blue-600/20 hover:border-blue-200">
+    Get In Touch
+  </a>
+</div>
             </div>
         </div>
         <div class="container mx-auto px-6 flex justify-center pb-10">
