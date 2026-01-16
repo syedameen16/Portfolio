@@ -6,7 +6,6 @@
     <title>Syed Ameen Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         :root {
             --primary: #3b82f6;
@@ -19,8 +18,6 @@
             background-color: var(--light);
             color: var(--dark);
             transition: all 0.3s ease;
-            /* Prevent horizontal scroll on mobile */
-            overflow-x: hidden;
         }
         .skill-bar {
             height: 8px;
@@ -37,15 +34,6 @@
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
-        .chart-container {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.8s ease;
-        }
-        .chart-container.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
         .gradient-bg {
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
         }
@@ -57,59 +45,68 @@
             50% { transform: translateY(-10px); }
             100% { transform: translateY(0px); }
         }
-        .tooltip {
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+        }
+        .container {
+            max-width: 100% !important;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        @media (max-width: 768px) {
+            #scrollToTopBtn {
+                bottom: 1.5rem;
+                right: 1.5rem;
+            }
+        }
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 100;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background: white;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 700px;
+            max-height: 85vh;
+            overflow-y: auto;
+            padding: 30px;
             position: relative;
-            display: inline-block;
         }
-        .tooltip .tooltiptext {
-            visibility: hidden;
-            width: 120px;
-            background-color: var(--dark);
-            color: #fff;
-            text-align: center;
-            border-radius: 6px;
-            padding: 5px;
+        .modal-close {
             position: absolute;
-            z-index: 1;
-            bottom: 125%;
-            left: 50%;
-            margin-left: -60px;
-            opacity: 0;
-            transition: opacity 0.3s;
+            top: 15px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #666;
         }
-        .tooltip:hover .tooltiptext {
-            visibility: visible;
-            opacity: 1;
+        .modal-close:hover {
+            color: #000;
         }
-        @media (max-width: 360px) {
-            #menu-btn { right: 0.5rem; }
+        /* Case Study Link Style */
+        .case-study-link {
+            display: inline-block;
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            padding: 4px 0;
+            transition: all 0.3s ease;
         }
-        /* Prevent horizontal overflow on all devices */
-html, body {
-  overflow-x: hidden;
-  width: 100%;
-}
-
-/* Ensure all content stays within viewport */
-.container {
-  max-width: 100% !important;
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
-        /* Ensure mobile menu is fully interactive */
-        #mobile-menu {
-            touch-action: manipulation;
-            -webkit-tap-highlight-color: transparent;
+        .case-study-link:hover {
+            text-decoration: underline;
         }
-        
-@media (max-width: 768px) {
-    #scrollToTopBtn {
-        bottom: 1.5rem;
-        right: 1.5rem;
-    }
-}
-
     </style>
 </head>
 <body>
@@ -121,6 +118,7 @@ html, body {
                 <a href="#about" class="hover:text-gray-300">About</a>
                 <a href="#skills" class="hover:text-gray-300">Skills</a>
                 <a href="#projects" class="hover:text-gray-300">Projects</a>
+                <a href="#certifications" class="hover:text-gray-300">Certifications</a>
                 <a href="#contact" class="hover:text-gray-300">Contact</a>
             </div>
             <!-- Hamburger Button -->
@@ -139,6 +137,7 @@ html, body {
                 <a href="#about" class="block hover:text-gray-300">About</a>
                 <a href="#skills" class="block hover:text-gray-300">Skills</a>
                 <a href="#projects" class="block hover:text-gray-300">Projects</a>
+                <a href="#certifications" class="block hover:text-gray-300">Certifications</a>
                 <a href="#contact" class="block hover:text-gray-300">Contact</a>
             </div>
         </div>
@@ -146,40 +145,28 @@ html, body {
         <!-- Main Hero Content -->
         <div class="container mx-auto px-6 py-20">
             <div class="max-w-3xl">
-                <!-- Desktop Heading -->
-<h1 class="hidden md:block text-6xl font-bold mb-6">
-    Turning business data into insights with Python, SQL and Power BI.
-</h1>
-
-<!-- Mobile Heading -->
-<h1 class="block md:hidden text-3xl font-bold mb-4">
-    Data Analyst | Python • SQL • Power BI
-</h1>
-
-<!-- Desktop paragraph -->
-<p class="hidden md:block text-xl mb-8">
-    Data Analyst skilled in Python, SQL and Power BI, focusing on EDA, dashboard development and turning real datasets into actionable business insights.
-</p>
-
-<!-- Mobile paragraph -->
-<p class="block md:hidden text-base mb-6">
-    Data Analyst using Python, SQL and Power BI to explore, clean and visualize real-world data.
-</p>
-
-
+                <h1 class="hidden md:block text-6xl font-bold mb-6">
+                    Turning business data into insights with Python, SQL and Power BI.
+                </h1>
+                <h1 class="block md:hidden text-3xl font-bold mb-4">
+                    Data Analyst | Python • SQL • Power BI
+                </h1>
+                <p class="hidden md:block text-xl mb-8">
+                    Data Analyst skilled in Python, SQL and Power BI, focusing on EDA, dashboard development and turning real datasets into actionable business insights.
+                </p>
+                <p class="block md:hidden text-base mb-6">
+                    Data Analyst using Python, SQL and Power BI to explore, clean and visualize real-world data.
+                </p>
                 <div class="flex flex-wrap gap-4">
-  <!-- Primary Button -->
-  <a href="#projects"
-     class="bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold transition hover:bg-blue-500 hover:shadow-md">
-    View My Projects
-  </a>
-
-  <!-- Secondary Button (now with bright white text) -->
-  <a href="#contact"
-     class="bg-transparent border-2 border-blue-300 text-white px-6 py-2 rounded-lg font-semibold transition hover:bg-blue-600/20 hover:border-blue-200">
-    Get In Touch
-  </a>
-</div>
+                    <a href="#projects"
+                       class="bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold transition hover:bg-blue-500 hover:shadow-md">
+                        View My Projects
+                    </a>
+                    <a href="#contact"
+                       class="bg-transparent border-2 border-blue-300 text-white px-6 py-2 rounded-lg font-semibold transition hover:bg-blue-600/20 hover:border-blue-200">
+                        Get In Touch
+                    </a>
+                </div>
             </div>
         </div>
         <div class="container mx-auto px-6 flex justify-center pb-10">
@@ -189,24 +176,16 @@ html, body {
         </div>
     </header>
 
-    <!-- Rest of your sections remain unchanged -->
-    <!-- About, Skills, Projects, Certifications, Contact, Footer -->
-
-    <!-- We'll keep your existing sections as-is from "About" onward -->
-    <!-- Paste them below unchanged -->
-
     <!-- About Section -->
     <section id="about" class="py-20 bg-white relative overflow-hidden">
-        <!-- ... your existing about content ... -->
-        <!-- (No changes needed below) -->
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-bold mb-12 text-center">About Me</h2>
             <div class="flex flex-col md:flex-row items-center relative z-10">
                 <div class="md:w-1/2 mb-8 md:mb-0 md:pr-10 relative">
                     <img
                         src="Side.jpg"
-                        alt="Working on data analytics at a modern desk setup with monitors showing charts and graphs"
-                        title="Visualizing my journey into Data Analytics — sharpening my skills in Python, Power BI, SQL, and real-world data projects. #AspiringDataAnalyst #FreshersInTech"
+                        alt="Working on data analytics"
+                        title="Visualizing my journey into Data Analytics"
                         class="rounded-lg shadow-md w-full transition duration-500 ease-in-out transform hover:scale-105 hover:shadow-xl"/>
                 </div>
                 <div class="md:w-1/2">
@@ -214,7 +193,7 @@ html, body {
                         Aspiring Data Analyst with skills in <strong class="text-blue-600">Python, SQL, Pandas</strong>, and <strong class="text-yellow-600">Power BI</strong>, passionate about turning data into actionable insights. Eager to grow in dynamic environments by contributing to real-world, data-driven solutions.
                     </p>
                     <p class="text-lg mb-6">
-                        I have learned to face challenges with a positive mindset and good time management. Right now, I’m improving my skills by working on projects and learning new tools step by step.
+                        I have learned to face challenges with a positive mindset and good time management. Right now, I'm improving my skills by working on projects and learning new tools step by step.
                     </p>
                     <div class="flex items-center space-x-4 mb-6">
                         <div class="p-3 bg-blue-100 rounded-full">
@@ -227,9 +206,7 @@ html, body {
                         </div>
                     </div>
                     <div class="flex items-center space-x-4 mb-6">
-                        <div class="p-3 bg-blue-100 rounded-full">
-                            <i class="fas fa-graduation-cap text-blue-600 text-xl"></i>
-                        </div>
+                        <div class="p-3 bg-blue-100 rounded-full text-blue-600"><i class="fas fa-school text-xl"></i></div>
                         <div>
                             <p>HSC Education</p>
                             <p class="text-sm text-gray-600">Anaikar Oriental (Arabic) Higher Secondary School (2019–2021)</p>
@@ -237,9 +214,7 @@ html, body {
                         </div>
                     </div>
                     <div class="flex items-center space-x-4 mb-6">
-                        <div class="p-3 bg-blue-100 rounded-full">
-                            <i class="fas fa-graduation-cap text-blue-600 text-xl"></i>
-                        </div>
+                        <div class="p-3 bg-blue-100 rounded-full text-blue-600"><i class="fas fa-school text-xl"></i></div>
                         <div>
                             <p>SSLC Education</p>
                             <p class="text-sm text-gray-600">International Indian School Al-Majmaah (2018–2019)</p>
@@ -247,153 +222,241 @@ html, body {
                         </div>
                     </div>
                     <a href="https://raw.githubusercontent.com/syedameen16/Portfolio/main/Syed_Ameen_Ahmed_Resume.pdf?raw=1"
-   download="Syed_Ameen_Ahmed_Resume.pdf"
-   class="inline-flex items-center px-4 py-2 text-blue-600 font-semibold hover:text-blue-800 hover:bg-blue-50 rounded-lg transition transform hover:scale-105 duration-300">
-   Download Resume
-   <i class="fas fa-download ml-2"></i>
-</a>
-
+                       download="Syed_Ameen_Ahmed_Resume.pdf"
+                       class="inline-flex items-center px-4 py-2 text-blue-600 font-semibold hover:text-blue-800 hover:bg-blue-50 rounded-lg transition transform hover:scale-105 duration-300">
+                       Download Resume
+                       <i class="fas fa-download ml-2"></i>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Skills Section -->
+  <!--Skills  -----------------------------Skills --------------------------              Skills                   -->
     <section id="skills" class="py-20 bg-gray-50">
-        <!-- ... your existing skills content ... -->
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold mb-12 text-center">My Skills</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                <div>
-                    <h3 class="text-xl font-semibold mb-4">Technical Skills</h3>
-                    <div class="mb-4">
-                        <div class="flex justify-between mb-1">
-                            <span>Python</span>
-                            <span>90%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 0" data-width="90%"></div>
-                        </div>
+    <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold mb-12 text-center">My Skills</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+
+            <!-- Technical Skills -->
+            <div class="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300">
+                <div class="flex items-center mb-8">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
+                        <i class="fas fa-code text-blue-600 text-xl"></i>
                     </div>
-                    <div class="mb-4">
-                        <div class="flex justify-between mb-1">
-                            <span>SQL</span>
-                            <span>95%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 0" data-width="95%"></div>
-                        </div>
-                    </div>
-                    <div class="mb-4">
-                        <div class="flex justify-between mb-1">
-                            <span>Power BI</span>
-                            <span>85%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 0" data-width="85%"></div>
-                        </div>
-                    </div>
+                    <h3 class="text-2xl font-bold">Technical Skills</h3>
                 </div>
-                <div>
-                    <h3 class="text-xl font-semibold mb-4">Analytical Skills</h3>
-                    <div class="mb-4">
-                        <div class="flex justify-between mb-1">
-                            <span>Data Visualization</span>
-                            <span>90%</span>
+
+                <div class="space-y-8">
+                    <div class="skill-item">
+                        <div class="flex items-center mb-3">
+                            <i class="fab fa-python text-yellow-500 text-lg mr-3"></i>
+                            <h4 class="font-bold text-lg">Python</h4>
                         </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 0" data-width="90%"></div>
+                        <div class="flex flex-wrap gap-2 mb-3">
+                            <span class="px-3 py-1 bg-blue-50 text-blue-700 text-xs rounded-full border border-blue-200">Pandas</span>
+                            <span class="px-3 py-1 bg-blue-50 text-blue-700 text-xs rounded-full border border-blue-200">NumPy</span>
+                            <span class="px-3 py-1 bg-blue-50 text-blue-700 text-xs rounded-full border border-blue-200">Matplotlib</span>
+                            <span class="px-3 py-1 bg-blue-50 text-blue-700 text-xs rounded-full border border-blue-200">Seaborn</span>
                         </div>
-                    </div>
-                    <div class="mb-4">
-                        <div class="flex justify-between mb-1">
-                            <span>Statistical Analysis</span>
-                            <span>85%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 0" data-width="85%"></div>
+                        <div class="text-xs text-gray-500">
+                            <span class="font-medium text-blue-600">Used in:</span> Blinkit analysis, Diwali e-commerce analysis, churn project
                         </div>
                     </div>
-                    <div class="mb-4">
-                        <div class="flex justify-between mb-1">
-                            <span>Machine Learning</span>
-                            <span>75%</span>
+
+                    <div class="skill-item">
+                        <div class="flex items-center mb-3">
+                            <i class="fas fa-database text-blue-500 text-lg mr-3"></i>
+                            <h4 class="font-bold text-lg">SQL</h4>
                         </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 0" data-width="75%"></div>
+                        <div class="flex flex-wrap gap-2 mb-3">
+                            <span class="px-3 py-1 bg-blue-50 text-blue-700 text-xs rounded-full border border-blue-200">Joins</span>
+                            <span class="px-3 py-1 bg-blue-50 text-blue-700 text-xs rounded-full border border-blue-200">CTEs</span>
+                            <span class="px-3 py-1 bg-blue-50 text-blue-700 text-xs rounded-full border border-blue-200">Window Functions</span>
+                            <span class="px-3 py-1 bg-blue-50 text-blue-700 text-xs rounded-full border border-blue-200">Aggregations</span>
+                        </div>
+                        <div class="text-xs text-gray-500">
+                            <span class="font-medium text-blue-600">Used in:</span> Pizza sales analysis, HR schema practice
                         </div>
                     </div>
-                    <div class="mb-4">
-                        <div class="flex justify-between mb-1">
-                            <span>Data Cleaning</span>
-                            <span>95%</span>
+
+                    <div class="skill-item">
+                        <div class="flex items-center mb-3">
+                            <i class="fas fa-chart-line text-yellow-600 text-lg mr-3"></i>
+                            <h4 class="font-bold text-lg">Power BI</h4>
                         </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 0" data-width="95%"></div>
+                        <div class="flex flex-wrap gap-2 mb-3">
+                            <span class="px-3 py-1 bg-blue-50 text-blue-700 text-xs rounded-full border border-blue-200">DAX</span>
+                            <span class="px-3 py-1 bg-blue-50 text-blue-700 text-xs rounded-full border border-blue-200">Data Modeling</span>
+                            <span class="px-3 py-1 bg-blue-50 text-blue-700 text-xs rounded-full border border-blue-200">Dashboards</span>
+                            <span class="px-3 py-1 bg-blue-50 text-blue-700 text-xs rounded-full border border-blue-200">Visualizations</span>
+                        </div>
+                        <div class="text-xs text-gray-500">
+                            <span class="font-medium text-blue-600">Used in:</span> Chocolate sales dashboard, churn dashboard
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="flex items-center mb-3">
+                            <i class="fas fa-file-excel text-green-500 text-lg mr-3"></i>
+                            <h4 class="font-bold text-lg">Excel</h4>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-3">
+                            <span class="px-3 py-1 bg-blue-50 text-blue-700 text-xs rounded-full border border-blue-200">Pivot Tables</span>
+                            <span class="px-3 py-1 bg-blue-50 text-blue-700 text-xs rounded-full border border-blue-200">Formulas</span>
+                            <span class="px-3 py-1 bg-blue-50 text-blue-700 text-xs rounded-full border border-blue-200">Charts</span>
+                            <span class="px-3 py-1 bg-blue-50 text-blue-700 text-xs rounded-full border border-blue-200">Data Cleaning</span>
+                        </div>
+                        <div class="text-xs text-gray-500">
+                            <span class="font-medium text-blue-600">Used in:</span> Academic projects and personal analysis
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="mt-16">
-                <h3 class="text-xl font-semibold mb-8 text-center">Tools I Use</h3>
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                    <a href="https://www.geeksforgeeks.org/python-programming-language/" target="_blank" class="flex flex-col items-center hover:scale-105 transition">
-                        <div class="w-16 h-16 flex items-center justify-center bg-white rounded-lg shadow-md mb-2">
-                            <i class="fab fa-python text-3xl text-yellow-500"></i>
-                        </div>
-                        <span class="font-medium">Python</span>
-                        <p class="text-sm text-gray-600 mt-1">For data analysis, automation, and machine learning.</p>
-                    </a>
-                    <a href="https://www.geeksforgeeks.org/sql-tutorial/" target="_blank" class="flex flex-col items-center hover:scale-105 transition">
-                        <div class="w-16 h-16 flex items-center justify-center bg-white rounded-lg shadow-md mb-2">
-                            <i class="fas fa-database text-3xl text-blue-600"></i>
-                        </div>
-                        <span class="font-medium">SQL</span>
-                        <p class="text-sm text-gray-600 mt-1">To retrieve, filter, and aggregate data from databases.</p>
-                    </a>
-                    <a href="https://www.geeksforgeeks.org/pandas/introduction-to-pandas-in-python/" target="_blank" class="flex flex-col items-center hover:scale-105 transition">
-                        <div class="w-16 h-16 flex items-center justify-center bg-white rounded-lg shadow-md mb-2">
-                            <img src="https://pandas.pydata.org/static/img/pandas_mark.svg" alt="Pandas" class="w-full h-full object-contain p-2" />
-                        </div>
-                        <span class="font-medium">Pandas</span>
-                        <p class="text-sm text-gray-600 mt-1">For manipulating, cleaning, and analyzing structured data.</p>
-                    </a>
-                    <a href="https://www.geeksforgeeks.org/numpy-tutorial/" target="_blank" class="flex flex-col items-center hover:scale-105 transition">
-                        <div class="w-16 h-16 flex items-center justify-center bg-white rounded-lg shadow-md mb-2">
-                            <img src="https://numpy.org/images/logo.svg" alt="NumPy" class="w-full h-full object-contain p-2" />
-                        </div>
-                        <span class="font-medium">NumPy</span>
-                        <p class="text-sm text-gray-600 mt-1">Used for fast numerical operations and array computations.</p>
-                    </a>
-                    <a href="https://www.geeksforgeeks.org/power-bi/power-bi-rise-of-microsoft-power-bi-as-a-data-analytics-powerhouse/" target="_blank" class="flex flex-col items-center hover:scale-105 transition">
-                        <div class="w-16 h-16 flex items-center justify-center bg-white rounded-lg shadow-md mb-2">
-                            <img src="https://download.logo.wine/logo/Power_BI/Power_BI-Logo.wine.png" alt="Power BI" class="w-full h-full object-contain p-2" />
-                        </div>
-                        <span class="font-medium">Power BI</span>
-                        <p class="text-sm text-gray-600 mt-1">To build dashboards and visualize business insights.</p>
-                    </a>
-                    <a href="https://www.geeksforgeeks.org/excel/introduction-to-ms-excel/" target="_blank" class="flex flex-col items-center hover:scale-105 transition">
-                        <div class="w-16 h-16 flex items-center justify-center bg-white rounded-lg shadow-md mb-2">
-                            <i class="fas fa-file-excel text-3xl text-green-600"></i>
-                        </div>
-                        <span class="font-medium">Excel</span>
-                        <p class="text-sm text-gray-600 mt-1">For quick data cleaning, formulas, and charts.</p>
-                    </a>
-                    <a href="https://www.geeksforgeeks.org/python/getting-started-with-jupyter-notebook-python/" target="_blank" class="flex flex-col items-center hover:scale-105 transition">
-                        <div class="w-16 h-16 flex items-center justify-center bg-white rounded-lg shadow-md mb-2">
-                            <img src="https://jupyter.org/assets/homepage/main-logo.svg" alt="Jupyter Notebook" class="w-full h-full object-contain p-2" />
-                        </div>
-                        <span class="font-medium">Jupyter</span>
-                        <p class="text-sm text-gray-600 mt-1">Interactive coding and visualizations in notebook format.</p>
-                    </a>
-                    <a href="https://www.geeksforgeeks.org/introduction-to-github/" target="_blank" class="flex flex-col items-center hover:scale-105 transition">
-                        <div class="w-16 h-16 flex items-center justify-center bg-white rounded-lg shadow-md mb-2">
-                            <i class="fab fa-github text-3xl text-gray-800"></i>
-                        </div>
-                        <span class="font-medium">GitHub</span>
-                        <p class="text-sm text-gray-600 mt-1">To share projects, version control, and collaborate.</p>
-                    </a>
+
+            <!-- Analytical Skills -->
+            <div class="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300">
+                <div class="flex items-center mb-8">
+                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mr-4">
+                        <i class="fas fa-chart-pie text-purple-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold">Analytical Skills</h3>
                 </div>
+
+                <div class="space-y-8">
+                    <div class="skill-item">
+                        <div class="flex items-center mb-3">
+                            <i class="fas fa-chart-bar text-blue-500 text-lg mr-3"></i>
+                            <h4 class="font-bold text-lg">Data Visualization</h4>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-3">
+                            <span class="px-3 py-1 bg-purple-50 text-purple-700 text-xs rounded-full border border-purple-200">Dashboards</span>
+                            <span class="px-3 py-1 bg-purple-50 text-purple-700 text-xs rounded-full border border-purple-200">Storytelling</span>
+                            <span class="px-3 py-1 bg-purple-50 text-purple-700 text-xs rounded-full border border-purple-200">KPIs</span>
+                            <span class="px-3 py-1 bg-purple-50 text-purple-700 text-xs rounded-full border border-purple-200">Business Insights</span>
+                        </div>
+                        <div class="text-xs text-gray-500">
+                            <span class="font-medium text-blue-600">Used in:</span> Power BI projects, Python EDA
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="flex items-center mb-3">
+                            <i class="fas fa-broom text-green-500 text-lg mr-3"></i>
+                            <h4 class="font-bold text-lg">Data Cleaning</h4>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-3">
+                            <span class="px-3 py-1 bg-purple-50 text-purple-700 text-xs rounded-full border border-purple-200">Data Validation</span>
+                            <span class="px-3 py-1 bg-purple-50 text-purple-700 text-xs rounded-full border border-purple-200">Outlier Detection</span>
+                            <span class="px-3 py-1 bg-purple-50 text-purple-700 text-xs rounded-full border border-purple-200">Formatting</span>
+                            <span class="px-3 py-1 bg-purple-50 text-purple-700 text-xs rounded-full border border-purple-200">Quality Checks</span>
+                        </div>
+                        <div class="text-xs text-gray-500">
+                            <span class="font-medium text-blue-600">Used in:</span> All analysis projects
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="flex items-center mb-3">
+                            <i class="fas fa-search text-purple-500 text-lg mr-3"></i>
+                            <h4 class="font-bold text-lg">Exploratory Analysis</h4>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-3">
+                            <span class="px-3 py-1 bg-purple-50 text-purple-700 text-xs rounded-full border border-purple-200">Trend Analysis</span>
+                            <span class="px-3 py-1 bg-purple-50 text-purple-700 text-xs rounded-full border border-purple-200">Segmentation</span>
+                            <span class="px-3 py-1 bg-purple-50 text-purple-700 text-xs rounded-full border border-purple-200">Pattern Detection</span>
+                            <span class="px-3 py-1 bg-purple-50 text-purple-700 text-xs rounded-full border border-purple-200">Descriptive Stats</span>
+                        </div>
+                        <div class="text-xs text-gray-500">
+                            <span class="font-medium text-blue-600">Used in:</span> Sales and churn projects
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="flex items-center mb-3">
+                            <i class="fas fa-brain text-pink-500 text-lg mr-3"></i>
+                            <h4 class="font-bold text-lg">Machine Learning (Basics)</h4>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-3">
+                            <span class="px-3 py-1 bg-purple-50 text-purple-700 text-xs rounded-full border border-purple-200">Regression</span>
+                            <span class="px-3 py-1 bg-purple-50 text-purple-700 text-xs rounded-full border border-purple-200">Classification</span>
+                            <span class="px-3 py-1 bg-purple-50 text-purple-700 text-xs rounded-full border border-purple-200">Model Evaluation</span>
+                            <span class="px-3 py-1 bg-purple-50 text-purple-700 text-xs rounded-full border border-purple-200">Feature Selection</span>
+                        </div>
+                        <div class="text-xs text-gray-500">
+                            <span class="font-medium text-blue-600">Used in:</span> Practice models and coursework
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<style>
+.skill-item {
+    transition: transform 0.3s ease;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.skill-item:last-child {
+    border-bottom: none;
+}
+
+.skill-item:hover {
+    transform: translateX(5px);
+}
+
+.skill-item:hover h4 {
+    color: #3b82f6;
+}
+</style>
+
+<style>
+.skill-item {
+    transition: transform 0.3s ease;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.skill-item:last-child {
+    border-bottom: none;
+}
+
+.skill-item:hover {
+    transform: translateX(5px);
+}
+
+.skill-item:hover h4 {
+    color: #3b82f6;
+}
+</style>
+
+<style>
+.skill-item {
+    transition: transform 0.3s ease;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.skill-item:last-child {
+    border-bottom: none;
+}
+
+.skill-item:hover {
+    transform: translateX(5px);
+}
+
+.skill-item:hover h4 {
+    color: #3b82f6;
+}
+</style>
+
+
+               
             </div>
         </div>
     </section>
@@ -419,9 +482,9 @@ html, body {
                 </div>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 project-container">
-                <!-- Project 1 -->
+                <!-- Project 1 - Chocolate Sales Dashboard -->
                 <div class="project-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300" data-category="Dashboards">
-                    <div class="h-48 overflow-hidden">
+                    <div class="h-48 overflow-hidden" >
                         <img src="Chocolate-Sales-Dashboard - Overview.PNG" alt="Chocolate Sales Dashboard">
                     </div>
                     <div class="p-6">
@@ -430,7 +493,7 @@ html, body {
                             <span class="text-sm text-blue-600 font-semibold">Visualization</span>
                             <span class="text-xs text-gray-500">July 2025</span>
                         </div>
-                        <h3 class="text-xl font-bold mb-4">Chocolate Sales Dashboard</h3>
+                        <h3 class="font-bold group-hover:text-blue-600">Chocolate Sales Dashboard</h3>
                         <p class="text-gray-600 mb-4">Created a Power BI dashboard to analyze chocolate sales by country, product, and salesperson. Included KPIs, charts, and filters to show monthly trends and top-performing items.</p>
                         <div class="flex space-x-2 mb-4">
                             <span class="px-2 py-1 bg-gray-100 text-gray-800 text-xs rounded">Power BI</span>
@@ -438,14 +501,13 @@ html, body {
                             <span class="px-2 py-1 bg-gray-100 text-gray-800 text-xs rounded">Business-Intelligence</span>
                         </div>
                         <div class="flex justify-between items-center">
-                            <a href="https://github.com/syedameen16/Portfolio/tree/main/Projects/Chocolate_Sales_Dashboard_in_Power_BI" target="_blank" class="text-blue-600 text-sm font-semibold hover:underline">View Project</a>
-                            <a href="https://github.com/syedameen16/Portfolio/tree/main/Projects/Chocolate_Sales_Dashboard_in_Power_BI" target="_blank" class="text-gray-500 hover:text-gray-700">
-                                <i class="fas fa-external-link-alt"></i>
-                            </a>
+                            <a href="https://github.com/syedameen16/Portfolio/tree/main/Projects/Chocolate_Sales_Dashboard_in_Power_BI" target="_blank" class="text-blue-600 text-sm font-semibold hover:underline">View Project <i class="fas fa-external-link-alt text-xs"></i></a>
+                            <a href="#case-study" class="case-study-link text-blue-600 text-sm font-semibold hover:underline" data-project="Chocolate Sales Dashboard">View Case Study</a>
+                            
                         </div>
                     </div>
                 </div>
-                <!-- Project 2 -->
+                <!-- Project 2 - Customer Churn Dashboard -->
                 <div class="project-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300" data-category="Dashboards">
                     <div class="h-48 overflow-hidden">
                         <img src="Customer Churn Overview.PNG" alt="Customer Churn Dashboard">
@@ -464,10 +526,9 @@ html, body {
                             <span class="px-2 py-1 bg-gray-100 text-gray-800 text-xs rounded">Business-Intelligence</span>
                         </div>
                         <div class="flex justify-between items-center">
-                            <a href="https://github.com/syedameen16/Portfolio/tree/main/Projects/Customer_Churn_Dashboard_in_Power_BI" target="_blank" class="text-blue-600 text-sm font-semibold hover:underline">View Project</a>
-                            <a href="https://github.com/syedameen16/Portfolio/tree/main/Projects/Customer_Churn_Dashboard_in_Power_BI" target="_blank" class="text-gray-500 hover:text-gray-700">
-                                <i class="fas fa-external-link-alt"></i>
-                            </a>
+                            <a href="https://github.com/syedameen16/Portfolio/tree/main/Projects/Customer_Churn_Dashboard_in_Power_BI" target="_blank" class="text-blue-600 text-sm font-semibold hover:underline">View Project <i class="fas fa-external-link-alt text-xs"></i></a>
+                            <a href="#case-study" class="case-study-link text-blue-600 text-sm font-semibold hover:underline" data-project="Customer Churn Dashboard">View Case Study</a>
+                            
                         </div>
                     </div>
                 </div>
@@ -491,10 +552,9 @@ html, body {
                             <span class="px-2 py-1 bg-gray-100 text-gray-800 text-xs rounded">Matplotlib</span>
                         </div>
                         <div class="flex justify-between items-center">
-                            <a href="https://github.com/syedameen16/Portfolio/tree/main/Projects/Diwali_Ecommerce_Sales_Analysis" target="_blank" class="text-blue-600 text-sm font-semibold hover:underline">View Project</a>
-                            <a href="https://github.com/syedameen16/Portfolio/tree/main/Projects/Diwali_Ecommerce_Sales_Analysis" target="_blank" class="text-gray-500 hover:text-gray-700">
-                                <i class="fas fa-external-link-alt"></i>
-                            </a>
+                            <a href="https://github.com/syedameen16/Portfolio/tree/main/Projects/Diwali_Ecommerce_Sales_Analysis" target="_blank" class="text-blue-600 text-sm font-semibold hover:underline">View Project <i class="fas fa-external-link-alt text-xs"></i></a>
+                            <a href="#case-study" class="case-study-link text-blue-600 text-sm font-semibold hover:underline" data-project="Diwali E-commerce Sales Analysis">View Case Study</a>
+                            
                         </div>
                     </div>
                 </div>
@@ -519,14 +579,13 @@ html, body {
                             <span class="px-2 py-1 bg-gray-100 text-gray-800 text-xs rounded">Seaborn</span>
                         </div>
                         <div class="flex justify-between items-center">
-                            <a href="https://github.com/syedameen16/Portfolio/tree/main/Projects/Blinkit%20Analysis" target="_blank" class="text-blue-600 text-sm font-semibold hover:underline">View Project</a>
-                            <a href="https://github.com/syedameen16/Portfolio/tree/main/Projects/Blinkit%20Analysis" target="_blank" class="text-gray-500 hover:text-gray-700">
-                                <i class="fas fa-external-link-alt"></i>
-                            </a>
+                            <a href="https://github.com/syedameen16/Portfolio/tree/main/Projects/Blinkit%20Analysis" target="_blank" class="text-blue-600 text-sm font-semibold hover:underline">View Project <i class="fas fa-external-link-alt text-xs"></i></a>
+                            <a href="#case-study" class="case-study-link text-blue-600 text-sm font-semibold hover:underline" data-project="Blinkit Sales Analysis">View Case Study</a>
+                            
                         </div>
                     </div>
                 </div>
-                <!-- Project 5 -->
+                <!-- Project 5 - Pizza Sales Analysis -->
                 <div class="project-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300" data-category="SQL">
                     <div class="h-48 overflow-hidden">
                         <img src="Pizza_Cover.PNG" alt="Pizza Sales Analysis" class="w-full h-full object-cover" />
@@ -545,10 +604,9 @@ html, body {
                             <span class="px-2 py-1 bg-gray-100 text-gray-800 text-xs rounded">SQL</span>
                         </div>
                         <div class="flex justify-between items-center">
-                            <a href="https://github.com/syedameen16/Portfolio/tree/main/Projects/Pizza_Sales_Analysis_(SQL)" target="_blank" class="text-blue-600 text-sm font-semibold hover:underline">View Project</a>
-                            <a href="https://github.com/syedameen16/Portfolio/tree/main/Projects/Pizza_Sales_Analysis_(SQL)" target="_blank" class="text-gray-500 hover:text-gray-700">
-                                <i class="fas fa-external-link-alt"></i>
-                            </a>
+                            <a href="https://github.com/syedameen16/Portfolio/tree/main/Projects/Pizza_Sales_Analysis_(SQL)" target="_blank" class="text-blue-600 text-sm font-semibold hover:underline">View Project <i class="fas fa-external-link-alt text-xs"></i></a>
+                            <a href="#case-study" class="case-study-link text-blue-600 text-sm font-semibold hover:underline" data-project="Pizza Sales Analysis (SQL)">View Case Study</a>
+                            
                         </div>
                     </div>
                 </div>
@@ -570,29 +628,26 @@ html, body {
                 </div>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 certification-container">
+                <!-- All your existing certifications remain here -->
                 <!-- Cert 1 -->
                 <div class="cert-card bg-white rounded-lg shadow-md overflow-hidden p-6 transform transition-transform duration-300 hover:scale-105 hover:shadow-lg" data-category="Programming-Databases">
-    <h3 class="text-xl font-bold mb-2">Crash Course on Python</h3>
-    <p class="text-gray-600 mb-4">
-        Covered basics of Python programming, control flow, functions, and data structures.| Jul 13, 2023
-    </p>
-
-    <div class="flex justify-between items-center">
-        <a href="https://github.com/syedameen16/Portfolio/blob/main/Certificates/Coursera_Crash_Course_on_PY.pdf" 
-           target="_blank" 
-           class="text-blue-600 hover:underline text-sm">
-            View Certificate
-        </a>
-
-        <a href="https://github.com/syedameen16/Portfolio/blob/main/Certificates/Coursera_Crash_Course_on_PY.pdf" 
-           target="_blank" 
-           class="text-gray-500 hover:text-gray-700">
-            <i class="fas fa-external-link-alt"></i>
-        </a>
-    </div>
-
-</div>
-
+                    <h3 class="text-xl font-bold mb-2">Crash Course on Python</h3>
+                    <p class="text-gray-600 mb-4">
+                        Covered basics of Python programming, control flow, functions, and data structures.| Jul 13, 2023
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <a href="https://github.com/syedameen16/Portfolio/blob/main/Certificates/Coursera_Crash_Course_on_PY.pdf" 
+                           target="_blank" 
+                           class="text-blue-600 hover:underline text-sm">
+                            View Certificate
+                        </a>
+                        <a href="https://github.com/syedameen16/Portfolio/blob/main/Certificates/Coursera_Crash_Course_on_PY.pdf" 
+                           target="_blank" 
+                           class="text-gray-500 hover:text-gray-700">
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
                 <!-- Cert 2 -->
                 <div class="cert-card bg-white rounded-lg shadow-md overflow-hidden p-6 transform transition-transform duration-300 hover:scale-105 hover:shadow-lg" data-category="DS-ML">
                     <h3 class="text-xl font-bold mb-2">Machine Learning with Python</h3>
@@ -748,17 +803,39 @@ html, body {
                     </div>
                 </div>
                 <div class="md:w-1/2">
-                    <form action="https://formsubmit.co/ameenahmed16th@gmail.com" method="POST" class="space-y-4">
-                        <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_next" value="https://syedameen16.github.io/Portfolio/thankyou.html"> <input type="hidden" name="_subject" value="New Portfolio Message!">
-    <input type="hidden" name="_autoresponse" value="Thank you for contacting me! I have received your message regarding a potential data opportunity and will respond shortly. In the meantime, feel free to check out my latest GitHub repositories.">
-    
-    <input type="text" name="name" placeholder="Name" required class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
-    <input type="email" name="email" placeholder="Email" required class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
-    <textarea name="message" rows="4" placeholder="Your Message" required class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"></textarea>
-    <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg font-bold hover:bg-blue-700 transition">Send Message</button>
-</form>
-                </div>
+
+
+
+                    <!--                       Form Submit            -->
+
+    <form action="https://formsubmit.co/ameenahmed16th@gmail.com" method="POST" class="space-y-4">
+        <input type="hidden" name="_next" value="https://yourwebsite.com/thankyou.html">
+        <input type="hidden" name="_subject" value="New Portfolio Message!">
+        <input type="hidden" name="_autoresponse" value="Thank you for contacting me! I have received your message regarding a potential data opportunity and will respond shortly. In the meantime, feel free to check out my latest GitHub repositories.">
+        
+        <!-- Name -->
+        <input type="text" name="name" placeholder="Name" required class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
+        
+        <!-- Email -->
+        <input type="email" name="email" placeholder="Email" required class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
+        
+        <!-- Subject Dropdown (NEW) -->
+        <select name="subject" class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
+            <option value="" disabled selected>Choose a subject..</option>
+            <option value="Job Opportunity">Job Opportunity</option>
+            <option value="Project Collaboration">Project Collaboration</option>
+            <option value="Freelance Work">Freelance Work</option>
+            <option value="General Inquiry">General Inquiry</option>
+            <option value="Feedback">Feedback</option>
+            <option value="Other">Other</option>
+        </select>
+        
+        <!-- Message -->
+        <textarea name="message" rows="4" placeholder="Your Message" required class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"></textarea>
+        
+        <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg font-bold hover:bg-blue-700 transition">Send Message</button>
+    </form>
+</div>
             </div>
         </div>
     </section>
@@ -784,6 +861,16 @@ html, body {
         </div>
     </footer>
 
+    <!-- Case Study Modal -->
+    <div id="caseStudyModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div id="modalContent">
+                <!-- Content will be inserted here by JavaScript -->
+            </div>
+        </div>
+    </div>
+
     <!-- JavaScript -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -795,42 +882,42 @@ html, body {
             });
 
             // Mobile menu toggle
-const menuBtn = document.getElementById('menu-btn');
-const mobileMenu = document.getElementById('mobile-menu');
-const icon = menuBtn.querySelector('i');
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const icon = menuBtn.querySelector('i');
 
-menuBtn.addEventListener('click', () => {
-    mobileMenu.classList.toggle('translate-x-full');
-    if (icon.classList.contains('fa-bars')) {
-        icon.classList.remove('fa-bars');
-        icon.classList.add('fa-times');
-    } else {
-        icon.classList.remove('fa-times');
-        icon.classList.add('fa-bars');
-    }
-});
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('translate-x-full');
+                if (icon.classList.contains('fa-bars')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
 
-// 👇 ADD THIS: Close when clicking outside
-document.addEventListener('click', (e) => {
-    if (
-        !mobileMenu.contains(e.target) &&
-        !menuBtn.contains(e.target) &&
-        !mobileMenu.classList.contains('translate-x-full')
-    ) {
-        mobileMenu.classList.add('translate-x-full');
-        icon.classList.remove('fa-times');
-        icon.classList.add('fa-bars');
-    }
-});
+            // Close menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (
+                    !mobileMenu.contains(e.target) &&
+                    !menuBtn.contains(e.target) &&
+                    !mobileMenu.classList.contains('translate-x-full')
+                ) {
+                    mobileMenu.classList.add('translate-x-full');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
 
-// 👇 ALSO ADD THIS: Close when clicking a nav link (optional but recommended)
-document.querySelectorAll('#mobile-menu a').forEach(link => {
-    link.addEventListener('click', () => {
-        mobileMenu.classList.add('translate-x-full');
-        icon.classList.remove('fa-times');
-        icon.classList.add('fa-bars');
-    });
-});
+            // Close menu when clicking a nav link
+            document.querySelectorAll('#mobile-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('translate-x-full');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                });
+            });
 
             // Project filtering
             const projectFilterButtons = document.querySelectorAll('#projects .inline-flex button');
@@ -876,55 +963,163 @@ document.querySelectorAll('#mobile-menu a').forEach(link => {
                             card.style.display = "none";
                         }
                     });
-
                 });
             });
-        });
-        
-document.addEventListener('DOMContentLoaded', function () {
-    const btn = document.getElementById('scrollToTopBtn');
 
-    // Show/hide with slower fade (controlled by CSS duration-500 = 0.5s)
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) {
-            btn.classList.remove('opacity-0', 'pointer-events-none');
-        } else {
-            btn.classList.add('opacity-0', 'pointer-events-none');
-        }
-    });
+            // Case Study Data - Updated with your exact content
+const projectDetails = {
+  "Chocolate Sales Dashboard": {
+    title: "Chocolate Sales Dashboard",
+    problem: "Leadership had no clear visibility into which regions and products were driving or losing profit.",
+    solution: "Built a Power BI dashboard using DAX to track YoY growth, profit margins, and product performance with dynamic filters.",
+    impact: "Cut reporting time by 80% and exposed 3 consistently underperforming product lines for corrective action.",
+    gallery: ["Chocolate-Sales-Dashboard - Overview.PNG"]
+  },
 
-    // Custom smooth scroll with slower duration (1200ms)
-    btn.addEventListener('click', () => {
-        const start = window.scrollY;
-        const duration = 800; // milliseconds — increase for slower scroll
-        const startTime = performance.now();
+  "Customer Churn Dashboard": {
+    title: "Customer Churn Dashboard",
+    problem: "Telecom churn was reducing revenue, but drivers of customer exit were unclear.",
+    solution: "Analyzed customer behavior using Python (Pandas, NumPy, Seaborn) and built a Power BI dashboard for churn monitoring.",
+    impact: "Revealed that month-to-month contracts churn 45% more than long-term contracts, enabling targeted retention offers.",
+    gallery: ["Customer Churn Overview.PNG"]
+  },
 
-        function step(currentTime) {
-            const elapsed = currentTime - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            // Ease-out function for smoother deceleration
-            const easeOut = 1 - Math.pow(1 - progress, 3);
-            window.scrollTo(0, start * (1 - easeOut));
-            
-            if (progress < 1) {
+  "Pizza Sales Analysis (SQL)": {
+    title: "Pizza Sales Analysis (SQL)",
+    problem: "Staffing and inventory were misaligned with actual peak order times.",
+    solution: "Wrote SQL queries using joins, aggregations, and time-based analysis to identify order patterns.",
+    impact: "Found that 60% of orders occur between 6 PM–9 PM, improving staff scheduling and inventory planning.",
+    gallery: ["Pizza_Cover.PNG"]
+  },
+
+  "Diwali E-commerce Sales Analysis": {
+    title: "Diwali E-commerce Sales Analysis",
+    problem: "Sales teams didn't know which products and regions performed best during festive sales.",
+    solution: "Used Python (Pandas, Matplotlib, Seaborn) to analyze order volume, revenue, and category-wise performance.",
+    impact: "Identified top-performing categories and regions, helping prioritize stock and marketing during festive sales.",
+    gallery: ["Diwali_Ecommerce_Overview.PNG"]
+  },
+
+  "Blinkit Sales Analysis": {
+    title: "Blinkit Sales Analysis",
+    problem: "No clarity on which products and outlets were generating consistent revenue.",
+    solution: "Analyzed sales data using Python and built insights on outlet size, item type, and sales contribution.",
+    impact: "Highlighted high-revenue product categories and outlet types for focused expansion.",
+    gallery: ["Blinkit_Overview.PNG"]
+  }
+};
+
+// Case Study Modal
+const modal = document.getElementById('caseStudyModal');
+const modalContent = document.getElementById('modalContent');
+const closeBtn = document.querySelector('.modal-close');
+const caseStudyLinks = document.querySelectorAll('.case-study-link');
+
+caseStudyLinks.forEach(link => {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    const projectName = this.getAttribute('data-project');
+    const project = projectDetails[projectName];
+    
+    if (project) {
+      let galleryHtml = '';
+      if (project.gallery && project.gallery.length > 0) {
+        galleryHtml = `
+          <div class="mt-6">
+            <h4 class="font-bold mb-2 text-gray-700">Gallery:</h4>
+            <div class="grid grid-cols-2 gap-2">
+              ${project.gallery.map(img => `
+                <img src="${img}" alt="${projectName}" class="w-full h-32 object-cover rounded">
+              `).join('')}
+            </div>
+          </div>
+        `;
+      }
+
+      modalContent.innerHTML = `
+        <h1 class="text-2xl font-bold mb-6 text-gray-800">${project.title}</h1>
+        <div class="space-y-6">
+          <div>
+            <h2 class="text-lg font-bold mb-2 text-blue-600">THE PROBLEM</h2>
+            <p class="text-gray-700">${project.problem}</p>
+          </div>
+          <div>
+            <h2 class="text-lg font-bold mb-2 text-green-600">THE SOLUTION</h2>
+            <p class="text-gray-700">${project.solution}</p>
+          </div>
+          <hr class="my-4 border-gray-300">
+          <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded">
+            <h3 class="text-lg font-bold mb-2 text-gray-800">BUSINESS IMPACT</h3>
+            <p class="text-gray-700 italic">"${project.impact}"</p>
+          </div>
+          ${galleryHtml}
+        </div>
+      `;
+      modal.style.display = 'flex';
+    }
+  });
+});
+
+closeBtn.addEventListener('click', function() {
+  modal.style.display = 'none';
+});
+
+window.addEventListener('click', function(event) {
+  if (event.target === modal) {
+    modal.style.display = 'none';
+  }
+});
+            // Scroll to top button
+            const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    scrollToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
+                } else {
+                    scrollToTopBtn.classList.add('opacity-0', 'pointer-events-none');
+                }
+            });
+
+            scrollToTopBtn.addEventListener('click', () => {
+                const start = window.scrollY;
+                const duration = 800;
+                const startTime = performance.now();
+
+                function step(currentTime) {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const easeOut = 1 - Math.pow(1 - progress, 3);
+                    window.scrollTo(0, start * (1 - easeOut));
+                    
+                    if (progress < 1) {
+                        requestAnimationFrame(step);
+                    }
+                }
                 requestAnimationFrame(step);
-            }
-        }
-        requestAnimationFrame(step);
-    });
+            });
+        });
+        // Reset contact form when page loads or refreshes
+document.addEventListener('DOMContentLoaded', function() {
+    // Reset the subject dropdown
+    const subjectSelect = document.querySelector('select[name="subject"]');
+    if (subjectSelect) {
+        subjectSelect.value = '';
+    }
+    
+    // Optional: Reset the entire form
+    const form = document.querySelector('form');
+    if (form) {
+        form.reset();
+    }
 });
     </script>
+    
     <!-- Scroll to Top Button -->
     <button id="scrollToTopBtn"
         class="fixed bottom-6 right-6 w-12 h-12 bg-blue-600 text-white rounded-full shadow-lg flex items-center justify-center opacity-0 pointer-events-none
                transition-all duration-500 ease-out hover:bg-blue-700 hover:shadow-xl z-[60]"
         aria-label="Scroll to top">
-    <i class="fas fa-arrow-up text-lg"></i>
-</button>
+        <i class="fas fa-arrow-up text-lg"></i>
+    </button>
+    
 </body>
 </html>
-
-
-
-
-
