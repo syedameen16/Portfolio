@@ -107,6 +107,29 @@
         .case-study-link:hover {
             text-decoration: underline;
         }
+
+        /* Ensure certification buttons look good on mobile */
+#cert-filter-buttons button {
+    margin-bottom: 4px;
+}
+
+/* Remove rounded edges when wrapped */
+#cert-filter-buttons button:first-child {
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+}
+
+#cert-filter-buttons button:last-child {
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+}
+
+/* On mobile, make all buttons fully rounded */
+@media (max-width: 640px) {
+    #cert-filter-buttons button {
+        border-radius: 0.5rem !important;
+    }
+}
     </style>
 </head>
 <body>
@@ -619,14 +642,14 @@
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-bold mb-12 text-center">Certifications</h2>
             <div class="flex justify-center mb-8">
-                <div class="inline-flex rounded-md shadow-sm" role="group" id="cert-filter-buttons">
-                    <button type="button" class="cert-filter-btn px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-l-lg hover:bg-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-500 transition" data-filter="all">All</button>
-                    <button type="button" class="cert-filter-btn px-4 py-2 text-sm font-medium text-gray-900 bg-white hover:bg-gray-100 focus:z-10 focus:ring-2 focus:ring-blue-500 transition" data-filter="Programming-Databases">Programming & Databases</button>
-                    <button type="button" class="cert-filter-btn px-4 py-2 text-sm font-medium text-gray-900 bg-white hover:bg-gray-100 focus:z-10 focus:ring-2 focus:ring-blue-500 transition" data-filter="DS-ML">Data Science & Machine Learning</button>
-                    <button type="button" class="cert-filter-btn px-4 py-2 text-sm font-medium text-gray-900 bg-white hover:bg-gray-100 focus:z-10 focus:ring-2 focus:ring-blue-500 transition" data-filter="Microsoft-Technologies">Microsoft Technologies</button>
-                    <button type="button" class="cert-filter-btn px-4 py-2 text-sm font-medium text-gray-900 bg-white rounded-r-md hover:bg-gray-100 focus:z-10 focus:ring-2 focus:ring-blue-500 transition" data-filter="Industry/Company-Specific">Industry/Company Specific</button>
-                </div>
-            </div>
+    <div class="flex flex-wrap justify-center gap-2" role="group" id="cert-filter-buttons">
+        <button type="button" class="cert-filter-btn px-3 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-500 transition" data-filter="all">All</button>
+        <button type="button" class="cert-filter-btn px-3 py-2 text-sm font-medium text-gray-900 bg-white hover:bg-gray-100 focus:z-10 focus:ring-2 focus:ring-blue-500 transition" data-filter="Programming-Databases">Programming & Database</button>
+        <button type="button" class="cert-filter-btn px-3 py-2 text-sm font-medium text-gray-900 bg-white hover:bg-gray-100 focus:z-10 focus:ring-2 focus:ring-blue-500 transition" data-filter="DS-ML">Data Science & ML</button>
+        <button type="button" class="cert-filter-btn px-3 py-2 text-sm font-medium text-gray-900 bg-white hover:bg-gray-100 focus:z-10 focus:ring-2 focus:ring-blue-500 transition" data-filter="Microsoft-Technologies">Microsoft Technologies</button>
+        <button type="button" class="cert-filter-btn px-3 py-2 text-sm font-medium text-gray-900 bg-white hover:bg-gray-100 focus:z-10 focus:ring-2 focus:ring-blue-500 transition" data-filter="Industry/Company-Specific">Industry/Company Specific</button>
+    </div>
+</div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 certification-container">
                 <!-- All your existing certifications remain here -->
                 <!-- Cert 1 -->
@@ -973,7 +996,7 @@ const projectDetails = {
     problem: "Leadership had no clear visibility into which regions and products were driving or losing profit.",
     solution: "Built a Power BI dashboard using DAX to track YoY growth, profit margins, and product performance with dynamic filters.",
     impact: "Cut reporting time by 80% and exposed 3 consistently underperforming product lines for corrective action.",
-    gallery: ["Chocolate-Sales-Dashboard - Overview.PNG"]
+    
   },
 
   "Customer Churn Dashboard": {
@@ -981,7 +1004,7 @@ const projectDetails = {
     problem: "Telecom churn was reducing revenue, but drivers of customer exit were unclear.",
     solution: "Analyzed customer behavior using Python (Pandas, NumPy, Seaborn) and built a Power BI dashboard for churn monitoring.",
     impact: "Revealed that month-to-month contracts churn 45% more than long-term contracts, enabling targeted retention offers.",
-    gallery: ["Customer Churn Overview.PNG"]
+    
   },
 
   "Pizza Sales Analysis (SQL)": {
@@ -989,7 +1012,7 @@ const projectDetails = {
     problem: "Staffing and inventory were misaligned with actual peak order times.",
     solution: "Wrote SQL queries using joins, aggregations, and time-based analysis to identify order patterns.",
     impact: "Found that 60% of orders occur between 6 PM–9 PM, improving staff scheduling and inventory planning.",
-    gallery: ["Pizza_Cover.PNG"]
+    
   },
 
   "Diwali E-commerce Sales Analysis": {
@@ -997,7 +1020,7 @@ const projectDetails = {
     problem: "Sales teams didn't know which products and regions performed best during festive sales.",
     solution: "Used Python (Pandas, Matplotlib, Seaborn) to analyze order volume, revenue, and category-wise performance.",
     impact: "Identified top-performing categories and regions, helping prioritize stock and marketing during festive sales.",
-    gallery: ["Diwali_Ecommerce_Overview.PNG"]
+    
   },
 
   "Blinkit Sales Analysis": {
@@ -1005,7 +1028,7 @@ const projectDetails = {
     problem: "No clarity on which products and outlets were generating consistent revenue.",
     solution: "Analyzed sales data using Python and built insights on outlet size, item type, and sales contribution.",
     impact: "Highlighted high-revenue product categories and outlet types for focused expansion.",
-    gallery: ["Blinkit_Overview.PNG"]
+    
   }
 };
 
