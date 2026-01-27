@@ -3,22 +3,609 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Message Received | Syed Ameen</title>
+    <title>Message Received | Syed Ameen - Data Analyst</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            overflow-x: hidden;
+        }
+        
+        .data-gradient {
+            background: linear-gradient(135deg, #3b82f6 0%, #10b981 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            background-size: 200% 200%;
+            animation: gradientShift 6s ease infinite;
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            box-shadow: 
+                0 10px 25px rgba(0, 0, 0, 0.05),
+                0 5px 10px rgba(0, 0, 0, 0.02);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(59, 130, 246, 0.05), transparent);
+            transform: rotate(45deg);
+            animation: cardShine 3s ease-in-out infinite;
+        }
+        
+        @keyframes cardShine {
+            0% { transform: rotate(45deg) translateX(-100%); }
+            100% { transform: rotate(45deg) translateX(100%); }
+        }
+        
+        .stat-card {
+            background: rgba(241, 245, 249, 0.5);
+            border: 1px solid rgba(226, 232, 240, 0.5);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stat-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.5s;
+        }
+        
+        .stat-card:hover::after {
+            left: 100%;
+        }
+        
+        .stat-card:hover {
+            background: rgba(241, 245, 249, 0.8);
+            border-color: #3b82f6;
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .pulse {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.7;
+                transform: scale(1.05);
+            }
+        }
+        
+        .float {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .float-delay-1 {
+            animation: float 6s ease-in-out 1s infinite;
+        }
+        
+        .float-delay-2 {
+            animation: float 6s ease-in-out 2s infinite;
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .skill-badge {
+            animation: badgePop 0.5s ease-out forwards;
+            opacity: 0;
+            transform: scale(0.8);
+        }
+        
+        @keyframes badgePop {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        .ripple {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ripple-effect {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.6);
+            transform: scale(0);
+            animation: ripple 0.6s linear;
+            pointer-events: none;
+        }
+        
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+        
+        .chart-line {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: drawLine 2s ease-out forwards;
+        }
+        
+        @keyframes drawLine {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+        
+        .data-point {
+            animation: dataPointPulse 2s ease-out infinite;
+        }
+        
+        @keyframes dataPointPulse {
+            0%, 100% {
+                r: 4;
+                opacity: 0.8;
+            }
+            50% {
+                r: 6;
+                opacity: 1;
+            }
+        }
+        
+        .confetti-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+        }
+        
+        .loading-bar {
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #10b981, #3b82f6);
+            background-size: 200% 100%;
+            animation: loadingShimmer 2s linear infinite;
+        }
+        
+        @keyframes loadingShimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        
+        .message-sent {
+            animation: messageSent 0.5s ease-out forwards;
+        }
+        
+        @keyframes messageSent {
+            0% {
+                transform: scale(0.8) rotate(-10deg);
+                opacity: 0;
+            }
+            70% {
+                transform: scale(1.1) rotate(5deg);
+            }
+            100% {
+                transform: scale(1) rotate(0deg);
+                opacity: 1;
+            }
+        }
+        
+        .notification {
+            animation: notificationPop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        @keyframes notificationPop {
+            0% {
+                transform: scale(0) rotate(-180deg);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1) rotate(0deg);
+                opacity: 1;
+            }
+        }
+    </style>
 </head>
-<body class="bg-slate-50 flex items-center justify-center min-h-screen">
-    <div class="max-w-md w-full bg-white p-10 rounded-2xl shadow-xl text-center">
-        <div class="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
-            <i class="fas fa-paper-plane text-3xl"></i>
-        </div>
-        <h1 class="text-3xl font-bold text-slate-800 mb-4">Message Sent!</h1>
-        <p class="text-slate-600 mb-8">
-            Thank you for reaching out, Syed Ameen. I've received your message and will get back to you within 24 hours.
-        </p>
-        <a href="index.html" class="inline-block bg-blue-600 text-white px-8 py-3 rounded-full font-bold hover:bg-blue-700 transition shadow-lg">
-            <i class="fas fa-arrow-left mr-2"></i> Back to Portfolio
-        </a>
+<body class="flex items-center justify-center min-h-screen p-4">
+    <!-- Background Floating Elements -->
+    <div class="fixed inset-0 pointer-events-none z-0">
+        <div class="absolute top-10 left-10 w-4 h-4 bg-blue-400 rounded-full float opacity-60"></div>
+        <div class="absolute top-1/4 right-16 w-3 h-3 bg-emerald-400 rounded-full float-delay-1 opacity-70"></div>
+        <div class="absolute bottom-20 left-1/3 w-5 h-5 bg-purple-400 rounded-full float opacity-50"></div>
+        <div class="absolute bottom-10 right-10 w-2 h-2 bg-pink-400 rounded-full float-delay-2 opacity-80"></div>
     </div>
+    
+    <!-- Confetti Canvas -->
+    <canvas class="confetti-canvas"></canvas>
+    
+    <!-- Loading Bar -->
+    <div class="loading-bar fixed top-0 left-0 right-0 z-50"></div>
+    
+    <div class="max-w-2xl w-full relative z-10">
+        <!-- Main Card -->
+        <div class="card rounded-2xl p-8 md:p-10 fade-in-up" style="animation-delay: 0.2s">
+            <!-- Logo/Icon with Animation -->
+            <div class="flex justify-center mb-8 fade-in-up" style="animation-delay: 0.3s">
+                <div class="relative">
+                    <!-- Animated Background Ring -->
+                    <div class="absolute -inset-4">
+                        <div class="w-full h-full border-4 border-blue-400/30 rounded-full animate-ping"></div>
+                    </div>
+                    
+                    <!-- Main Icon -->
+                    <div class="w-24 h-24 bg-gradient-to-br from-blue-500 to-emerald-500 rounded-full flex items-center justify-center shadow-lg relative overflow-hidden message-sent">
+                        <!-- Animated Chart Lines -->
+                        <svg class="absolute inset-0 w-full h-full" viewBox="0 0 100 100">
+                            <path class="chart-line" d="M20,80 L40,60 L60,70 L80,50" stroke="rgba(255,255,255,0.3)" stroke-width="2" fill="none"/>
+                            <circle class="data-point" cx="20" cy="80" fill="white" r="4"/>
+                            <circle class="data-point" cx="40" cy="60" fill="white" r="4"/>
+                            <circle class="data-point" cx="60" cy="70" fill="white" r="4"/>
+                            <circle class="data-point" cx="80" cy="50" fill="white" r="4"/>
+                        </svg>
+                        
+                        <i class="fas fa-chart-line text-white text-4xl relative z-10"></i>
+                    </div>
+                    
+                    <!-- Check Notification -->
+                    <div class="absolute -top-2 -right-2 w-10 h-10 bg-gradient-to-br from-orange-500 to-red-500 rounded-full flex items-center justify-center shadow-lg notification">
+                        <i class="fas fa-check text-white text-sm"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Title with Typing Effect -->
+            <h1 class="text-3xl md:text-4xl font-bold text-slate-800 mb-4 text-center fade-in-up" style="animation-delay: 0.4s">
+                <span class="data-gradient typing-text"></span>
+            </h1>
+            
+            <!-- Subtitle -->
+            <p class="text-lg text-slate-600 mb-8 text-center max-w-xl mx-auto fade-in-up" style="animation-delay: 0.5s">
+                Thank you for reaching out, Syed Ameen. Your message has been securely received and will be analyzed promptly.
+            </p>
+            
+            <!-- Data Analyst Stats with Hover Animations -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
+                <div class="stat-card rounded-xl p-4 text-center fade-in-up" style="animation-delay: 0.6s">
+                    <div class="text-blue-600 text-2xl mb-2 pulse">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="font-semibold text-slate-800">24h Response</div>
+                    <div class="text-sm text-slate-500">Average Reply Time</div>
+                </div>
+                
+                <div class="stat-card rounded-xl p-4 text-center fade-in-up" style="animation-delay: 0.7s">
+                    <div class="text-emerald-600 text-2xl mb-2">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <div class="font-semibold text-slate-800">100% Secure</div>
+                    <div class="text-sm text-slate-500">Encrypted Storage</div>
+                </div>
+                
+                <div class="stat-card rounded-xl p-4 text-center fade-in-up" style="animation-delay: 0.8s">
+                    <div class="text-purple-600 text-2xl mb-2">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <div class="font-semibold text-slate-800">Data Analysis</div>
+                    <div class="text-sm text-slate-500">Expert Processing</div>
+                </div>
+            </div>
+            
+            <!-- Professional Links with Ripple Effects -->
+            <div class="space-y-4 mb-10">
+                <a href="https://www.linkedin.com/in/syed-ameen-ahmed-9b3871217/" target="_blank" 
+                   class="flex items-center justify-between bg-gradient-to-r from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 text-blue-700 p-4 rounded-xl transition-all duration-300 hover:shadow-md ripple fade-in-up"
+                   style="animation-delay: 0.9s">
+                    <div class="flex items-center">
+                        <i class="fab fa-linkedin text-xl mr-3 animate-pulse"></i>
+                        <span class="font-semibold">Connect on LinkedIn</span>
+                    </div>
+                    <i class="fas fa-external-link-alt text-sm opacity-70"></i>
+                </a>
+                
+                <a href="https://github.com/syedameen16" target="_blank" 
+                   class="flex items-center justify-between bg-gradient-to-r from-slate-50 to-slate-100 hover:from-slate-100 hover:to-slate-200 text-slate-700 p-4 rounded-xl transition-all duration-300 hover:shadow-md ripple fade-in-up"
+                   style="animation-delay: 1s">
+                    <div class="flex items-center">
+                        <i class="fab fa-github text-xl mr-3"></i>
+                        <span class="font-semibold">View GitHub Projects</span>
+                    </div>
+                    <i class="fas fa-external-link-alt text-sm opacity-70"></i>
+                </a>
+                
+                <!-- Resume Link - Important for Freshers -->
+                <a href="https://raw.githubusercontent.com/syedameen16/Portfolio/main/Syed_Ameen_Ahmed_Resume.pdf?raw=1" target="_blank"
+                   class="flex items-center justify-between bg-gradient-to-r from-emerald-50 to-emerald-100 hover:from-emerald-100 hover:to-emerald-200 text-emerald-700 p-4 rounded-xl transition-all duration-300 hover:shadow-md ripple fade-in-up"
+                   style="animation-delay: 1.1s">
+                    <div class="flex items-center">
+                        <i class="fas fa-file-alt text-xl mr-3"></i>
+                        <span class="font-semibold">View Resume (PDF)</span>
+                    </div>
+                    <i class="fas fa-download text-sm opacity-70"></i>
+                </a>
+            </div>
+            
+            <!-- Skills Preview with Sequential Animation -->
+            <div class="mb-10 fade-in-up" style="animation-delay: 1.2s">
+                <h3 class="text-lg font-semibold text-slate-700 mb-4 text-center">Data Analysis Skills</h3>
+                <div class="flex flex-wrap justify-center gap-2">
+                    <span class="px-3 py-1.5 bg-blue-100 text-blue-700 text-sm font-medium rounded-full skill-badge" style="animation-delay: 1.3s">Python</span>
+                    <span class="px-3 py-1.5 bg-emerald-100 text-emerald-700 text-sm font-medium rounded-full skill-badge" style="animation-delay: 1.4s">SQL</span>
+                    <span class="px-3 py-1.5 bg-purple-100 text-purple-700 text-sm font-medium rounded-full skill-badge" style="animation-delay: 1.5s">Excel</span>
+                    <span class="px-3 py-1.5 bg-amber-100 text-amber-700 text-sm font-medium rounded-full skill-badge" style="animation-delay: 1.6s">Tableau</span>
+                    <span class="px-3 py-1.5 bg-rose-100 text-rose-700 text-sm font-medium rounded-full skill-badge" style="animation-delay: 1.7s">Power BI</span>
+                    <span class="px-3 py-1.5 bg-cyan-100 text-cyan-700 text-sm font-medium rounded-full skill-badge" style="animation-delay: 1.8s">Statistics</span>
+                </div>
+            </div>
+            
+            <!-- Main Action Button -->
+            <div class="text-center fade-in-up" style="animation-delay: 1.9s">
+                <a href="index.html" 
+                   class="inline-block bg-gradient-to-r from-blue-600 to-emerald-500 hover:from-blue-700 hover:to-emerald-600 text-white px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 ripple animate-pulse">
+                    <i class="fas fa-arrow-left mr-3"></i> Return to Portfolio
+                </a>
+                
+                <p class="mt-6 text-sm text-slate-500 animate-pulse">
+                    <i class="fas fa-shield-alt mr-2 text-emerald-500"></i>
+                    Your message is encrypted and securely stored
+                </p>
+            </div>
+        </div>
+        
+        <!-- Footer Note -->
+        <div class="text-center mt-8 text-sm text-slate-500 fade-in-up" style="animation-delay: 2s">
+            <p>© 2026 Syed Ameen | Data Analyst </p>
+            <p class="mt-1">Specializing in Python, SQL, Data Visualization & Statistical Analysis</p>
+        </div>
+    </div>
+    
+    <script>
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Trigger confetti on load
+            setTimeout(() => {
+                confetti({
+                    particleCount: 100,
+                    spread: 70,
+                    origin: { y: 0.6 },
+                    colors: ['#3b82f6', '#10b981', '#8b5cf6', '#ec4899', '#f59e0b']
+                });
+                
+                // Secondary burst
+                setTimeout(() => {
+                    confetti({
+                        particleCount: 50,
+                        angle: 60,
+                        spread: 55,
+                        origin: { x: 0.2 },
+                        colors: ['#3b82f6', '#10b981']
+                    });
+                }, 300);
+            }, 800);
+            
+            // Typing effect for title
+            const typingText = document.querySelector('.typing-text');
+            const text = 'Message Delivered!';
+            let i = 0;
+            
+            function typeWriter() {
+                if (i < text.length) {
+                    typingText.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 50);
+                } else {
+                    // Add cursor blink after typing
+                    typingText.innerHTML += '<span class="cursor">|</span>';
+                    const cursor = typingText.querySelector('.cursor');
+                    setInterval(() => {
+                        cursor.style.opacity = cursor.style.opacity === '0' ? '1' : '0';
+                    }, 500);
+                }
+            }
+            
+            setTimeout(typeWriter, 500);
+            
+            // Ripple effect for buttons
+            const rippleButtons = document.querySelectorAll('.ripple');
+            rippleButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    if (!this.getAttribute('target') || this.getAttribute('target') !== '_blank') {
+                        const rect = this.getBoundingClientRect();
+                        const size = Math.max(rect.width, rect.height);
+                        
+                        const ripple = document.createElement('span');
+                        ripple.classList.add('ripple-effect');
+                        ripple.style.width = ripple.style.height = size + 'px';
+                        ripple.style.left = e.clientX - rect.left - size / 2 + 'px';
+                        ripple.style.top = e.clientY - rect.top - size / 2 + 'px';
+                        
+                        this.appendChild(ripple);
+                        
+                        setTimeout(() => {
+                            ripple.remove();
+                        }, 600);
+                    }
+                });
+            });
+            
+            // Animate stat cards on hover
+            const statCards = document.querySelectorAll('.stat-card');
+            statCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    const icon = this.querySelector('i');
+                    icon.style.transform = 'scale(1.2)';
+                    icon.style.transition = 'transform 0.3s ease';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    const icon = this.querySelector('i');
+                    icon.style.transform = 'scale(1)';
+                });
+            });
+            
+            // Skill badges hover effect
+            const skillBadges = document.querySelectorAll('.skill-badge');
+            skillBadges.forEach((badge, index) => {
+                badge.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-3px) scale(1.1)';
+                    this.style.transition = 'all 0.3s ease';
+                    this.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
+                });
+                
+                badge.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                    this.style.boxShadow = 'none';
+                });
+                
+                // Sequential animation
+                setTimeout(() => {
+                    badge.style.animation = 'badgePop 0.5s ease-out forwards';
+                }, index * 100 + 1300);
+            });
+            
+            // Main button hover effects
+            const mainButton = document.querySelector('a[href="index.html"]');
+            mainButton.addEventListener('mouseenter', function() {
+                const icon = this.querySelector('i');
+                icon.style.transform = 'rotate(-20deg)';
+                icon.style.transition = 'transform 0.3s ease';
+                
+                // Mini confetti on hover
+                const rect = this.getBoundingClientRect();
+                confetti({
+                    particleCount: 8,
+                    spread: 20,
+                    origin: { 
+                        x: (rect.left + rect.width / 2) / window.innerWidth,
+                        y: (rect.top + rect.height / 2) / window.innerHeight
+                    },
+                    colors: ['#3b82f6', '#10b981'],
+                    shapes: ['circle'],
+                    scalar: 0.5
+                });
+            });
+            
+            mainButton.addEventListener('mouseleave', function() {
+                const icon = this.querySelector('i');
+                icon.style.transform = 'rotate(0deg)';
+            });
+            
+            // Loading bar animation
+            const loadingBar = document.querySelector('.loading-bar');
+            setTimeout(() => {
+                loadingBar.style.opacity = '0';
+                loadingBar.style.transition = 'opacity 0.5s ease';
+                setTimeout(() => {
+                    loadingBar.remove();
+                }, 500);
+            }, 2000);
+            
+            // Add data visualization animation
+            const dataPoints = document.querySelectorAll('.data-point');
+            dataPoints.forEach((point, index) => {
+                setTimeout(() => {
+                    point.style.animation = 'dataPointPulse 2s ease-out infinite';
+                }, index * 300);
+            });
+            
+            // Social link hover animations
+            const socialLinks = document.querySelectorAll('a[target="_blank"]');
+            socialLinks.forEach(link => {
+                link.addEventListener('mouseenter', function() {
+                    const externalIcon = this.querySelector('.fa-external-link-alt');
+                    externalIcon.style.transform = 'rotate(45deg) scale(1.2)';
+                    externalIcon.style.transition = 'transform 0.3s ease';
+                });
+                
+                link.addEventListener('mouseleave', function() {
+                    const externalIcon = this.querySelector('.fa-external-link-alt');
+                    externalIcon.style.transform = 'rotate(0deg) scale(1)';
+                });
+            });
+            
+            // Periodic subtle animations
+            setInterval(() => {
+                const randomIndex = Math.floor(Math.random() * skillBadges.length);
+                const randomBadge = skillBadges[randomIndex];
+                
+                randomBadge.style.transform = 'translateY(-2px)';
+                randomBadge.style.boxShadow = '0 3px 10px rgba(0,0,0,0.1)';
+                randomBadge.style.transition = 'all 0.3s ease';
+                
+                setTimeout(() => {
+                    randomBadge.style.transform = 'translateY(0)';
+                    randomBadge.style.boxShadow = 'none';
+                }, 300);
+            }, 3000);
+            
+            // Add CSS for cursor
+            const style = document.createElement('style');
+            style.textContent = `
+                .cursor {
+                    animation: blink 1s infinite;
+                    margin-left: 2px;
+                }
+                
+                @keyframes blink {
+                    0%, 100% { opacity: 1; }
+                    50% { opacity: 0; }
+                }
+                
+                .chart-line {
+                    animation-delay: 1s;
+                }
+                
+                .loading-bar {
+                    transition: opacity 0.5s ease;
+                }
+            `;
+            document.head.appendChild(style);
+        });
+    </script>
 </body>
 </html>
