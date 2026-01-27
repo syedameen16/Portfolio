@@ -1,80 +1,79 @@
-# 👋 Hi, I'm Syed Ameen Ahmed!
+# 👋 Hi, I'm Syed Ameen Ahmed
 
-🎯 **Aspiring Data Analyst** with hands-on experience in Python, Pandas, NumPy, SQL, Power BI, and Excel. Passionate about solving real-world business problems using data and delivering actionable insights through clean analysis and visualization.
+🎯 **Data Analyst** with hands-on experience in **Python, SQL, Power BI, and Excel**, focused on transforming raw data into meaningful insights through analysis and visualization.
 
 ---
 
-🌐 **Live Portfolio**:  
-👉 <a href="https://syedameen16.github.io/Portfolio/" target="_blank">Click here to view my Portfolio 🚀</a>
+## 🌐 Live Portfolio
+👉 https://syedameen16.github.io/Portfolio/
 
 ---
 
 ## 🚀 About Me
 
-- 📍 From Krishnagiri, Tamil Nadu  
-- 🎓 Recent graduate with hands-on experience and a solid foundation in data analytics and visualization  
-- 💻 Currently interning at **PySpyder** (Basavanagudi) — Data Analytics role  
-- 📈 Open to Analyst and Associate roles in Bangalore, Chennai, and Vellore  
-- 🔍 Interested in projects related to business analytics, data dashboards, and ML-based insights
+- 📍 Krishnagiri, Tamil Nadu  
+- 🎓 B.E. Computer Science and Engineering graduate  
+- 💼 **Data Analytics Intern — PySpiders (A Unit of Test Yantra Software Solutions Pvt. Ltd.)**  
+- 📊 Strong foundation in data cleaning, exploratory data analysis, and dashboard development  
+- 📈 Open to **Data Analyst / Associate Analyst** roles (Bangalore, Chennai, Vellore)
 
 ---
 
-## 🛠️ Skills
+## 🛠️ Technical Skills
 
-- **Languages**: Python, SQL, HTML/CSS
-- **Libraries**: Pandas, NumPy, Matplotlib, Seaborn
-- **Tools**: Power BI, MS Excel, Jupyter Notebook, VS Code, GitHub
-- **Database**: MySQL, Oracle SQL
-- **Others**: Data Cleaning, Data Transformation, Exploratory Data Analysis, Dashboarding
+- **Languages**: Python, SQL  
+- **Libraries**: Pandas, NumPy, Matplotlib, Seaborn  
+- **BI & Tools**: Power BI, Microsoft Excel  
+- **Databases**: MySQL, Oracle SQL  
+- **Other Skills**:  
+  - Data Cleaning & Transformation  
+  - Exploratory Data Analysis (EDA)  
+  - Dashboard Design & Data Visualization  
 
 ---
 
 ## 📂 Featured Projects
 
-### 📊 [Chocolate Sales Dashboard (Power BI)](https://github.com/syedameen16/Portfolio/tree/main/Projects/Chocolate%20Sales%20Dashboard%20in%20Power%20BI)
-Created a Power BI dashboard to analyze chocolate sales by country, product, and salesperson. Included KPIs, charts, and filters to show monthly trends and top-performing items.
+### 📊 Chocolate Sales Dashboard (Power BI)
+🔗 https://github.com/syedameen16/Portfolio/tree/main/Projects/Chocolate_Sales_Dashboard_in_Power_BI  
 
-**Keywords**: `power-bi`, `dashboard`, `data-visualization`, `sales-analysis`, `business-intelligence`
+Built an interactive Power BI dashboard to analyze chocolate sales across countries, products, and salespersons. Implemented KPIs, slicers, and trend analysis to support business decision-making.
 
----
-
-### 🤖 [Customer Churn Prediction (Python)](https://github.com/syedameen16/Portfolio/tree/main/Projects/Customer%20Churn%20Dashboard%20in%20Power%20BI)
-Developed a machine learning model to predict telecom customer churn using Python. Included EDA, key metrics, and classification models to identify high-risk customers.
-
-**Keywords**: `machine-learning`, `classification`, `python`, `sklearn`, `churn-prediction`
-
-
+**Tags**: `Power BI`, `Dashboard`, `Sales Analysis`, `Business Intelligence`
 
 ---
 
-### 🛍️ [Diwali E-Commerce Sales Analysis](https://github.com/syedameen16/Portfolio/tree/main/Projects/Diwali_Ecommerce_Sales_Analysis)
-Performed exploratory analysis on Diwali retail sales data to extract customer insights by state, age group, and product category.
+### 📉 Customer Churn Analysis
+🔗 https://github.com/syedameen16/Portfolio/tree/main/Projects/Customer_Churn_Dashboard_in_Power_BI  
 
-**Keywords**: `eda`, `retail-analytics`, `data-analysis`, `python`, `seaborn`
+Performed exploratory data analysis and churn analysis to identify key factors contributing to customer attrition. Created dashboards to visualize churn patterns and customer segments.
+
+**Tags**: `EDA`, `Python`, `Churn Analysis`, `Data Visualization`
+
+---
+
+### 🛍️ Diwali E-Commerce Sales Analysis
+🔗 https://github.com/syedameen16/Portfolio/tree/main/Projects/Diwali_Ecommerce_Sales_Analysis  
+
+Analyzed festive season sales data using Python to uncover trends by region, age group, and product category through EDA and visualizations.
+
+**Tags**: `Python`, `EDA`, `Retail Analytics`, `Seaborn`
 
 ---
 
 ## 📫 Connect With Me
 
-- 💼 [LinkedIn](https://www.linkedin.com/in/syed-ameen-9b3871217/)
-- 📧 <a href="mailto:ameenahmed16th@gmail.com">Gmail</a>
-- 📱 <a href="tel:+918778389094">8778389094</a>
-
-
+- 💼 LinkedIn: https://www.linkedin.com/in/syed-ameen-ahmed-9b3871217/  
+- 📧 Email: ameenahmed16th@gmail.com  
 
 ---
 
-## 🤝 Let's Connect
+## 📄 License
 
-I'm open to internships, freelance analytics projects, or full-time analyst roles.  
-Feel free to explore my GitHub repos and reach out for collaboration!
+The **source code** in this repository is licensed under the **MIT License**.
 
----
-
-## 🏷️ Portfolio Tags
-
-#data-analytics` `Python` `#PowerBI` `#Sql` `#Projects` `#Dashboard` `#EDA`  `#Data-Visualization`
+All **project content, datasets, images, certificates, and personal information** remain the property of **Syed Ameen Ahmed** and are **not covered** by the MIT License.
 
 ---
 
-_Thanks for visiting my profile! Feel free to explore my projects and connect with me._ 🙌
+Thanks for visiting! Feel free to explore the projects or reach out for collaboration.
