@@ -152,74 +152,181 @@
 .fa-spinner {
     animation: spin 1s linear infinite;
 }
-    </style>
+
+
+.skill-item {
+    transition: transform 0.3s ease;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.skill-item:last-child {
+    border-bottom: none;
+}
+
+.skill-item:hover {
+    transform: translateX(5px);
+}
+
+.skill-item:hover h4 {
+    color: #3b82f6;
+}
+
+
+
+
+.skill-item {
+    transition: transform 0.3s ease;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.skill-item:last-child {
+    border-bottom: none;
+}
+
+.skill-item:hover {
+    transform: translateX(5px);
+}
+
+.skill-item:hover h4 {
+    color: #3b82f6;
+}
+
+
+
+.skill-item {
+    transition: transform 0.3s ease;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.skill-item:last-child {
+    border-bottom: none;
+}
+
+.skill-item:hover {
+    transform: translateX(5px);
+}
+
+.skill-item:hover h4 {
+    color: #3b82f6;
+}
+</style>
+
+
+
 </head>
 <body>
     <header class="gradient-bg text-white relative">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center relative z-20">
-            <div class="text-2xl font-bold">Syed Ameen Ahmed</div>
-            <!-- Desktop Menu -->
-            <div class="hidden md:flex space-x-8">
-                <a href="#about" class="hover:text-gray-300">About</a>
-                <a href="#skills" class="hover:text-gray-300">Skills</a>
-                <a href="#projects" class="hover:text-gray-300">Projects</a>
-                <a href="#certifications" class="hover:text-gray-300">Certifications</a>
-                <a href="#contact" class="hover:text-gray-300">Contact</a>
-            </div>
-            <!-- Hamburger Button -->
-            <button id="menu-btn"
-                class="md:hidden z-[60] text-white focus:outline-none relative">
-                <i class="fas fa-bars text-xl"></i>
-            </button>
-        </nav>
+        <!-- Fixed Navbar -->
+<nav class="fixed top-0 left-0 right-0 bg-blue-500 container mx-auto px-6 py-4 flex justify-between items-center z-50">
+    <!-- Clickable name that goes to top -->
+        <a href="#" class="text-2xl font-bold text-white hover:text-gray-200 transition-colors">
+            Syed Ameen Ahmed
+        </a>
+    
+    
+    <!-- Desktop Menu -->
+    <div class="hidden md:flex space-x-8">
+        <a href="#about" class="hover:text-gray-300">About</a>
+        <a href="#skills" class="hover:text-gray-300 scroll-mt-20">Skills</a>
+        <a href="#internship" class="block hover:text-gray-300 scroll-mt-20">Internship</a>
+        <a href="#projects" class="hover:text-gray-300 scroll-mt-20">Projects</a>
+        <a href="#certifications" class="hover:text-gray-300 scroll-mt-20">Certifications</a>
+        <a href="#contact" class="hover:text-gray-300 scroll-mt-20">Contact</a>
+    </div>
+    <!-- Hamburger Button -->
+    <button id="menu-btn"
+        class="md:hidden z-[60] text-white focus:outline-none relative">
+        <i class="fas fa-bars text-xl"></i>
+    </button>
+</nav>
 
-        <!-- Mobile Menu -->
-        <div id="mobile-menu"
-             class="fixed top-0 right-0 h-full w-[180px] bg-blue-600 text-white
-                    transform translate-x-full transition-transform duration-500 ease-in-out
-                    md:hidden z-[55] shadow-lg rounded-l-xl">
-            <div class="pt-20 px-4 space-y-6 text-right">
-                <a href="#about" class="block hover:text-gray-300">About</a>
-                <a href="#skills" class="block hover:text-gray-300">Skills</a>
-                <a href="#projects" class="block hover:text-gray-300">Projects</a>
-                <a href="#certifications" class="block hover:text-gray-300">Certifications</a>
-                <a href="#contact" class="block hover:text-gray-300">Contact</a>
-            </div>
-        </div>
+<!-- Mobile Menu -->
+<div id="mobile-menu"
+     class="fixed top-0 right-0 h-full w-[180px] bg-blue-600 text-white
+            transform translate-x-full transition-transform duration-500 ease-in-out
+            md:hidden z-[55] shadow-lg rounded-l-xl">
+    <div class="pt-20 px-4 space-y-6 text-right">
+        <a href="#about" class="block hover:text-gray-300">About</a>
+        <a href="#skills" class="block hover:text-gray-300">Skills</a>
+        <a href="#internship" class="block hover:text-gray-300">Internship</a>
+        <a href="#projects" class="block hover:text-gray-300">Projects</a>
+        <a href="#certifications" class="block hover:text-gray-300">Certifications</a>
+        <a href="#contact" class="block hover:text-gray-300">Contact</a>
+    </div>
+</div>
+
+
+<!----------------------------------------------------------------------------------------------------------------->
+
+<!-- Add this empty div or padding to your main content to prevent it from being hidden under navbar -->
+<div class="pt-16"></div>
 
         <!-- Main Hero Content -->
         <div class="container mx-auto px-6 py-20">
-            <div class="max-w-3xl">
-                <h1 class="hidden md:block text-6xl font-bold mb-6">
-                    Turning business data into insights with Python, SQL and Power BI.
-                </h1>
-                <h1 class="block md:hidden text-3xl font-bold mb-4">
-                    Data Analyst | Python • SQL • Power BI
-                </h1>
-                <p class="hidden md:block text-xl mb-8">
-                    Data Analyst skilled in Python, SQL and Power BI, focusing on EDA, dashboard development and turning real datasets into actionable business insights.
-                </p>
-                <p class="block md:hidden text-base mb-6">
-                    Data Analyst using Python, SQL and Power BI to explore, clean and visualize real-world data.
-                </p>
+    <div class="flex flex-col lg:flex-row items-center lg:items-center gap-10">
+        <!-- Text Content -->
+        <div class="lg:w-3/5">
+            <h1 class="hidden md:block text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                Turning business data into insights with Python, SQL, Excel and Power BI.
+            </h1>
+            <h1 class="block md:hidden text-3xl font-bold mb-4">
+                Data Analyst | Python • SQL • Power BI • Excel
+            </h1>
+            <p class="hidden md:block text-xl mb-8 text-blue-50 max-w-3xl">
+
+                Data Analyst skilled in Python, SQL and Power BI, focusing on EDA, dashboard development and turning real datasets into actionable business insights.
+            </p>
+            <p class="block md:hidden text-base mb-6 text-blue-50">
+
+                Exploring, cleaning, and visualizing data with Python, SQL, Excel and Power BI
+            </p>
                 <div class="flex flex-wrap gap-4">
-                    <a href="#projects"
-                       class="bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold transition hover:bg-blue-500 hover:shadow-md">
-                        View My Projects
-                    </a>
-                    <a href="#contact"
-                       class="bg-transparent border-2 border-blue-300 text-white px-6 py-2 rounded-lg font-semibold transition hover:bg-blue-600/20 hover:border-blue-200">
-                        Get In Touch
-                    </a>
+    <!-- Download Resume Button -->
+    <a href="https://raw.githubusercontent.com/syedameen16/Portfolio/main/Syed_Ameen_Ahmed_Resume.pdf?raw=1"
+       download="Syed_Ameen_Ahmed_Resume.pdf"
+       style="border: 2px solid #ffffff; background-color: transparent; color: #ffffff; 
+              padding: 0.75rem 1.5rem; border-radius: 0.5rem; font-weight: 600; 
+              display: inline-flex; align-items: center; gap: 0.5rem;
+              transition: all 0.3s ease;"
+       onmouseover="this.style.backgroundColor='#ffffff'; this.style.color='#3b82f6'; this.style.borderColor='#d1d5db';"
+       onmouseout="this.style.backgroundColor='transparent'; this.style.color='#ffffff'; this.style.borderColor='#ffffff';">
+        Download Resume
+        <i class="fas fa-download"></i>
+    </a>
+
+    <!-- Get In Touch Button -->
+    <a href="#contact"
+       style="border: 2px solid #ffffff; background-color: transparent; color: #ffffff; 
+              padding: 0.75rem 1.5rem; border-radius: 0.5rem; font-weight: 600; 
+              display: inline-block; transition: all 0.3s ease;"
+       onmouseover="this.style.backgroundColor='#ffffff'; this.style.color='#3b82f6'; this.style.borderColor='#d1d5db';"
+       onmouseout="this.style.backgroundColor='transparent'; this.style.color='#ffffff'; this.style.borderColor='#ffffff';">
+        Get In Touch
+    </a>
+</div>
+
+        </div>
+        
+        <!-- Profile Photo -->
+        <div class="lg:w-2/5 flex justify-center">
+            <div class="relative">
+                <div class="w-72 h-72 lg:w-96 lg:h-96 rounded-full overflow-hidden border-8 border-white shadow-2xl 
+                            transition-all duration-500 hover:scale-105 hover:shadow-3xl">
+                    <img src="Profile.PNG" class="w-full h-full object-cover" alt="Profile" />
                 </div>
+                <!-- Optional decorative element -->
+                <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-blue-500/20 rounded-full blur-2xl"></div>
             </div>
         </div>
-        <div class="container mx-auto px-6 flex justify-center pb-10">
-            <div class="w-64 h-64 rounded-full overflow-hidden border-8 border-white shadow-lg">
-                <img src="Profile.PNG" class="w-full h-full object-cover" alt="Profile photo" />
-            </div>
-        </div>
+    </div>
+</div>
+<div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-white to-transparent"></div>
     </header>
+
+    
 
     <!-- About Section -->
     <section id="about" class="py-20 bg-white relative overflow-hidden">
@@ -235,7 +342,8 @@
                 </div>
                 <div class="md:w-1/2">
                     <p class="text-lg mb-6">
-                        Aspiring Data Analyst with skills in <strong class="text-blue-600">Python, SQL, Pandas</strong>, and <strong class="text-yellow-600">Power BI</strong>, passionate about turning data into actionable insights. Eager to grow in dynamic environments by contributing to real-world, data-driven solutions.
+                        Data Analyst with skills in <strong class="text-blue-600">Python, SQL, Pandas</strong>, and <strong class="text-yellow-600">Power BI</strong>, focused on analyzing data to generate meaningful insights for data-driven decision-making. Actively building real-world projects to strengthen analytical thinking, problem-solving, and technical expertise.
+
                     </p>
                     <p class="text-lg mb-6">
                         I have learned to face challenges with a positive mindset and good time management. Right now, I'm improving my skills by working on projects and learning new tools step by step.
@@ -440,71 +548,160 @@
     </div>
 </section>
 
-<style>
-.skill-item {
-    transition: transform 0.3s ease;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid #f3f4f6;
-}
-
-.skill-item:last-child {
-    border-bottom: none;
-}
-
-.skill-item:hover {
-    transform: translateX(5px);
-}
-
-.skill-item:hover h4 {
-    color: #3b82f6;
-}
-</style>
-
-<style>
-.skill-item {
-    transition: transform 0.3s ease;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid #f3f4f6;
-}
-
-.skill-item:last-child {
-    border-bottom: none;
-}
-
-.skill-item:hover {
-    transform: translateX(5px);
-}
-
-.skill-item:hover h4 {
-    color: #3b82f6;
-}
-</style>
-
-<style>
-.skill-item {
-    transition: transform 0.3s ease;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid #f3f4f6;
-}
-
-.skill-item:last-child {
-    border-bottom: none;
-}
-
-.skill-item:hover {
-    transform: translateX(5px);
-}
-
-.skill-item:hover h4 {
-    color: #3b82f6;
-}
-</style>
 
 
                
             </div>
         </div>
     </section>
+
+    <!-- Compact Version -->
+<section id="internship" class="py-12 scroll-mt-20">
+     <div class="absolute -top-20" id="internship-anchor"></div>
+    <div class="container mx-auto px-6">
+        <!-- Centered Title -->
+        <h2 class="text-3xl font-bold mb-12 text-gray-800 dark:text-white text-center">
+            <i class="fas fa-briefcase mr-3 text-blue-500"></i>
+            Internship Experience
+        </h2>
+        
+        <!-- Card with hover effects -->
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border-l-4 border-blue-500 
+                    transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-1
+                    hover:border-blue-600 hover:scale-[1.02] group">
+            <!-- Header Row -->
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4">
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800 dark:text-white group-hover:text-blue-600 
+                              dark:group-hover:text-blue-400 transition-colors duration-300">
+                        Data Analytics Intern
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-400 group-hover:text-gray-700 
+                              dark:group-hover:text-gray-300 transition-colors duration-300">
+                        PySpiders (A Unit of Test Yantra Software Solutions Pvt. Ltd.)
+                    </p>
+                </div>
+                <div class="mt-2 sm:mt-0">
+                    <span class="text-sm font-semibold text-blue-600 dark:text-blue-400 bg-blue-50 
+                                dark:bg-blue-900/30 px-3 py-1 rounded-lg group-hover:bg-blue-100 
+                                dark:group-hover:bg-blue-800/50 group-hover:shadow-md 
+                                transition-all duration-300">
+                        Jun 2025 - Jan 2026
+                    </span>
+                </div>
+            </div>
+            
+            <!-- Summary -->
+            <p class="text-gray-700 dark:text-gray-300 mb-4 group-hover:text-gray-800 
+                      dark:group-hover:text-gray-200 transition-colors duration-300">
+                Completed a 6-month structured internship focused on applying data analytics techniques 
+                using Python, SQL, Pandas, and Power BI to analyze and visualize datasets.
+            </p>
+            
+            <!-- Key Points -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-4">
+                <div class="flex items-start group/item">
+                    <i class="fas fa-check text-green-500 mt-1 mr-3 text-sm group-hover/item:scale-110 
+                              transition-transform duration-300"></i>
+                    <span class="text-gray-600 dark:text-gray-400 text-sm group-hover/item:text-gray-700 
+                               dark:group-hover/item:text-gray-300 transition-colors duration-300">
+                        Wrote SQL queries for data extraction, aggregation, and analysis
+                    </span>
+                </div>
+                <div class="flex items-start group/item">
+                    <i class="fas fa-check text-green-500 mt-1 mr-3 text-sm group-hover/item:scale-110 
+                              transition-transform duration-300"></i>
+                    <span class="text-gray-600 dark:text-gray-400 text-sm group-hover/item:text-gray-700 
+                               dark:group-hover/item:text-gray-300 transition-colors duration-300">
+                        Data cleaning & EDA with Python & Pandas
+                    </span>
+                </div>
+                <div class="flex items-start group/item">
+                    <i class="fas fa-check text-green-500 mt-1 mr-3 text-sm group-hover/item:scale-110 
+                              transition-transform duration-300"></i>
+                    <span class="text-gray-600 dark:text-gray-400 text-sm group-hover/item:text-gray-700 
+                               dark:group-hover/item:text-gray-300 transition-colors duration-300">
+                        Interactive dashboards in Power BI
+                    </span>
+                </div>
+                <div class="flex items-start group/item">
+                    <i class="fas fa-check text-green-500 mt-1 mr-3 text-sm group-hover/item:scale-110 
+                              transition-transform duration-300"></i>
+                    <span class="text-gray-600 dark:text-gray-400 text-sm group-hover/item:text-gray-700 
+                               dark:group-hover/item:text-gray-300 transition-colors duration-300">
+                        Executed hands-on projects following a data-driven problem-solving approach
+                    </span>
+                </div>
+                <div class="flex items-start group/item">
+                    <i class="fas fa-check text-green-500 mt-1 mr-3 text-sm group-hover/item:scale-110 
+                              transition-transform duration-300"></i>
+                    <span class="text-gray-600 dark:text-gray-400 text-sm group-hover/item:text-gray-700 
+                               dark:group-hover/item:text-gray-300 transition-colors duration-300">
+                        Translated analytical findings into clear visual reports and dashboards for interpretation
+                    </span>
+                </div>
+                <div class="flex items-start group/item">
+                    <i class="fas fa-check text-green-500 mt-1 mr-3 text-sm group-hover/item:scale-110 
+                              transition-transform duration-300"></i>
+                    <span class="text-gray-600 dark:text-gray-400 text-sm group-hover/item:text-gray-700 
+                               dark:group-hover/item:text-gray-300 transition-colors duration-300">
+                        Analyzed datasets to understand trends and patterns through queries, data cleaning, and visualization.
+                    </span>
+                </div>
+            </div>
+            
+            <!-- Skills Tags -->
+            <div class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700 
+                       group-hover:border-gray-300 dark:group-hover:border-gray-600 transition-colors duration-300">
+                <h4 class="text-lg font-semibold mb-4 text-gray-700 dark:text-gray-300 flex items-center
+                           group-hover:text-gray-800 dark:group-hover:text-gray-200 transition-colors duration-300">
+                    Technologies Used
+                </h4>
+                <div class="flex flex-wrap  gap-3">
+                    <span class="px-4 py-2 bg-blue-100 dark:bg-blue-900/50 text-blue-700 
+                                dark:text-blue-300 rounded-lg text-sm font-medium 
+                                group-hover:scale-105 group-hover:shadow-md transition-all duration-300">
+                        Python
+                    </span>
+                    <span class="px-4 py-2 bg-green-100 dark:bg-green-900/50 text-green-700 
+                                dark:text-green-300 rounded-lg text-sm font-medium 
+                                group-hover:scale-105 group-hover:shadow-md transition-all duration-300">
+                        SQL
+                    </span>
+                    <span class="px-4 py-2 bg-purple-100 dark:bg-purple-900/50 text-purple-700 
+                                dark:text-purple-300 rounded-lg text-sm font-medium 
+                                group-hover:scale-105 group-hover:shadow-md transition-all duration-300">
+                        Pandas
+                    </span>
+                    <span class="px-4 py-2 bg-yellow-100 dark:bg-yellow-900/50 text-yellow-700 
+                                dark:text-yellow-300 rounded-lg text-sm font-medium 
+                                group-hover:scale-105 group-hover:shadow-md transition-all duration-300">
+                        Power BI
+                    </span>
+                    <!-- <span class="px-4 py-2 bg-red-100 dark:bg-red-900/50 text-red-700 
+                                dark:text-red-300 rounded-lg text-sm font-medium 
+                                group-hover:scale-105 group-hover:shadow-md transition-all duration-300">
+                        Data Analytics
+                    </span> -->
+                </div>
+            </div>
+            
+            <!-- Optional: Glow effect on hover -->
+            <div class="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 
+                       transition-opacity duration-500 pointer-events-none">
+                <div class="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-transparent 
+                           rounded-xl blur-xl"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-------------------------------------------------------------------------------------------------------------------------->
+
+
+
+
 
     <!-- Projects Section -->
     <section id="projects" class="py-20 bg-white">
@@ -853,11 +1050,6 @@
                                 <!--                       Form Submit            -->
             <div class="md:w-1/2">
                 <form id="contactForm" action="https://formsubmit.co/ameenahmed16th@gmail.com" method="POST" class="space-y-4">
-                    <!-- IMPORTANT: Add _captcha field to disable CAPTCHA -->
-                    <input type="hidden" name="_captcha" value="false">
-                    
-                
-                    
                     <input type="hidden" name="_next" value="https://syedameen16.github.io/Portfolio/thankyou.html">
                     <input type="hidden" name="_subject" value="New Portfolio Message!">
                     <input type="hidden" name="_autoresponse" value="Thank you for contacting me! I have received your message regarding a potential data opportunity and will respond shortly. In the meantime, feel free to check out my latest GitHub repositories.">
@@ -919,17 +1111,22 @@
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="mb-4 md:mb-0">
                     <div class="text-2xl font-bold mb-2">Syed Ameen Ahmed</div>
-                    <p class="text-gray-400">Data Analyst in Training | Python & Power BI Enthusiast</p>
+                    <p class="text-gray-400">Data Analyst | Python • SQL • Power BI • Excel</p>
                 </div>
                 <div class="flex space-x-6">
                     <a href="#about" class="text-gray-400 hover:text-white transition">About</a>
                     <a href="#skills" class="text-gray-400 hover:text-white transition">Skills</a>
+                    <a href="#internship" class="text-gray-400 hover:text-white transition">Internship</a>
                     <a href="#projects" class="text-gray-400 hover:text-white transition">Projects</a>
                     <a href="#contact" class="text-gray-400 hover:text-white transition">Contact</a>
+                    
                 </div>
             </div>
             <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-                <p>© 2026 Syed Ameen Ahmed. All rights reserved.</p>
+                <p class="text-sm text-gray-400">
+
+                © <span id="year"></span> Syed Ameen Ahmed. All rights reserved.
+                </p>
             </div>
         </div>
     </footer>
@@ -946,6 +1143,11 @@
 
     <!-- JavaScript -->
     <script>
+
+        // Set current year in footer
+        document.getElementById("year").textContent = new Date().getFullYear();
+
+
         document.addEventListener('DOMContentLoaded', function () {
             // Animate skill bars
             const skillProgressBars = document.querySelectorAll('.skill-progress');
@@ -1308,6 +1510,4 @@ subjectSelect.addEventListener('focus', function() {
     
 </body>
 </html>
-
-
 
