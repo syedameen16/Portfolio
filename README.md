@@ -15,7 +15,7 @@
 - 🎓 B.E. Computer Science and Engineering graduate  
 - 💼 **Data Analytics Intern — PySpiders (A Unit of Test Yantra Software Solutions Pvt. Ltd.)**  
 - 📊 Strong foundation in data cleaning, exploratory data analysis, and dashboard development  
-- 📈 Open to **Data Analyst / Associate Analyst** roles (Bangalore, Chennai, Vellore)
+- 📈 Open to **Data Analyst / Associate Analyst** roles (Bangalore,Hyderabad, Chennai, Vellore)
 
 ---
 
