@@ -6,7 +6,9 @@
     <meta name="color-scheme" content="light">
     
     <title>Syed Ameen Ahmed | Data Analyst Portfolio</title>
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='25' fill='%232563eb'/><path d='M50 20 A30 30 0 0 1 80 50 L50 50 Z' fill='%23ffffff'/><path d='M45 25 A30 30 0 1 0 75 55 L45 55 Z' fill='%2367e8f9'/></svg>">
+    <!-- Data Analyst Tab Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%230f172a'/><text x='46' y='68' font-family='system-ui, -apple-system, sans-serif' font-size='48' font-weight='900' fill='%23ffffff' text-anchor='middle'>SA</text><circle cx='80' cy='65' r='7' fill='%2306b6d4'/></svg>">
+
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -56,11 +58,33 @@
             --bg-light: #f8fafc;
         }
 
+        html, body {
+            overflow-x: hidden !important;
+            max-width: 100vw !important;
+            width: 100% !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            position: relative;
+            touch-action: pan-y;
+        }
+
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: var(--bg-light);
             color: #1e293b;
-            overflow-x: hidden;
+        }
+
+        /* Contain sections to prevent any child animation or glow from causing side space */
+        section, header, footer {
+            max-width: 100vw !important;
+            overflow-x: clip !important;
+        }
+
+        @media (max-width: 768px) {
+            /* Prevent horizontal animation translation from expanding document width on mobile */
+            .rv-left, .rv-right {
+                transform: translateY(24px) !important;
+            }
         }
 
         /* Subtle Data Grid Pattern Background */
@@ -348,7 +372,9 @@ a.link-launch .fa-arrow-up-right-from-square { animation: arrowLaunch .45s ease-
             background: linear-gradient(135deg, #0b152d 0%, #0f1e42 45%, #0d2847 100%) !important;
             border: 2px solid transparent !important;
             border-radius: 1.25rem;
-            overflow: hidden;
+            overflow: hidden !important;
+            contain: paint;
+            max-width: 100%;
             transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1) !important;
             box-shadow: 0 15px 35px -10px rgba(15, 23, 42, 0.5), 0 0 0 1px rgba(59, 130, 246, 0.3);
             cursor: pointer;
@@ -486,7 +512,7 @@ a.link-launch .fa-arrow-up-right-from-square { animation: arrowLaunch .45s ease-
     <!-- Mobile Drawer (Solid, Opaque & High-Contrast) -->
     <aside id="mobile-menu" 
            style="background-color: #0f172a !important;"
-           class="fixed top-0 right-0 h-full w-[280px] sm:w-[320px] text-white transform translate-x-full transition-transform duration-300 ease-in-out md:hidden z-[100] shadow-2xl flex flex-col justify-between border-l border-slate-800">
+           class="fixed top-0 right-0 h-full w-[280px] sm:w-[320px] max-w-[85vw] text-white transform translate-x-full invisible pointer-events-none transition-all duration-300 ease-in-out md:hidden z-[100] shadow-2xl flex flex-col justify-between border-l border-slate-800">
         <div>
             <!-- Drawer Header -->
             <div class="flex justify-between items-center px-6 py-5 border-b border-slate-800 bg-slate-900/90">
@@ -1713,6 +1739,7 @@ a.link-launch .fa-arrow-up-right-from-square { animation: arrowLaunch .45s ease-
 
             function openDrawer() {
                 backdrop.classList.remove('hidden');
+                mobileMenu.classList.remove('invisible', 'pointer-events-none');
                 requestAnimationFrame(() => {
                     backdrop.classList.remove('opacity-0');
                     mobileMenu.classList.remove('translate-x-full');
@@ -1725,6 +1752,7 @@ a.link-launch .fa-arrow-up-right-from-square { animation: arrowLaunch .45s ease-
                 backdrop.classList.add('opacity-0');
                 setTimeout(() => {
                     backdrop.classList.add('hidden');
+                    mobileMenu.classList.add('invisible', 'pointer-events-none');
                     document.body.classList.remove('overflow-hidden');
                 }, 300);
             }
